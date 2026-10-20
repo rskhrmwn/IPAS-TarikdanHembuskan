@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"><meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#061a33">
+<!-- ===== SEO & Pratinjau Tautan (Open Graph / Twitter Card) ===== -->
+<meta name="description" content="Game petualangan edukasi IPAS: selamatkan sistem pernapasan! 10 level, 86 soal seru, boss Raja Kuman, dan power-up. Main 1 atau 2 pemain di HP, tablet, komputer, atau layar IFP.">
+<link rel="canonical" href="https://USERNAME.github.io/respira-quest/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Respira Quest">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Respira Quest – Misi Penyelamatan Sistem Pernapasan">
+<meta property="og:description" content="Jelajahi 10 level, kalahkan Raja Kuman, dan jawab 86 soal IPAS tentang sistem pernapasan. Gratis, langsung main di browser!">
+<meta property="og:url" content="https://USERNAME.github.io/respira-quest/">
+<meta property="og:image" content="https://USERNAME.github.io/respira-quest/og-image.jpg">
+<meta property="og:image:secure_url" content="https://USERNAME.github.io/respira-quest/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Respira Quest: karakter anak SD, paru-paru, koin, dan kuman di dunia petualangan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Respira Quest – Misi Penyelamatan Sistem Pernapasan">
+<meta name="twitter:description" content="Jelajahi 10 level, kalahkan Raja Kuman, dan jawab 86 soal IPAS tentang sistem pernapasan. Gratis, langsung main di browser!">
+<meta name="twitter:image" content="https://USERNAME.github.io/respira-quest/og-image.jpg">
+<meta name="twitter:image:alt" content="Respira Quest: karakter anak SD, paru-paru, koin, dan kuman di dunia petualangan">
+<!-- ===== PWA / Pasang di layar utama ===== -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="application-name" content="Respira Quest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Respira Quest">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-TileColor" content="#061a33">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23378fe3'/><text x='50' y='72' font-size='64' text-anchor='middle'>%F0%9F%AB%81</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Respira Quest", "alternateName": "Misi Penyelamatan Sistem Pernapasan", "description": "Game petualangan edukasi IPAS tentang sistem pernapasan manusia: 10 level, 86 soal, boss Raja Kuman, dan power-up.", "url": "https://USERNAME.github.io/respira-quest/", "image": "https://USERNAME.github.io/respira-quest/og-image.jpg", "applicationCategory": "EducationalApplication", "operatingSystem": "Semua perangkat dengan browser modern", "inLanguage": "id", "isAccessibleForFree": true, "educationalLevel": "Kelas 6 SD", "audience": {"@type": "EducationalAudience", "educationalRole": "student"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "IDR"}}</script>
+<title>Respira Quest – Misi Penyelamatan Sistem Pernapasan</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#061a33}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--bg);font-family:Fredoka,'Trebuchet MS',system-ui,sans-serif;overflow:hidden}
+body{display:grid;place-items:center;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+#box{position:relative;width:min(100vw,calc(100dvh*16/9));aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:#4fb6f2;user-select:none;touch-action:none}
+canvas{position:absolute;inset:0;width:100%;height:100%;filter:saturate(1.2) contrast(1.06)}
+.pc{position:absolute;top:2%;left:1.5%;display:flex;align-items:center;gap:1cqw;background:#0d3a73d9;border:.3cqw solid #5fd0f0;border-radius:5cqw;padding:.5cqw 2.4cqw .5cqw .6cqw;color:#fff;font-size:1.9cqw;font-weight:700;line-height:1.25}
+.pc.r{left:auto;right:1.5%}
+.av{width:6cqw;height:6cqw;border-radius:50%;background:#ffe0b8;border:.4cqw solid #ffd24a;display:grid;place-items:center;font-size:3.6cqw;font-style:normal}
+.ttl{position:absolute;left:50%;top:.5%;transform:translateX(-50%);text-align:center;font-weight:700;font-size:4.6cqw;line-height:.9;color:#ffb21e;-webkit-text-stroke:.35cqw #b4410f;paint-order:stroke fill;text-shadow:0 .5cqw 0 #7a2c0a;pointer-events:none;white-space:nowrap}
+.ttl b{display:block;color:#3fd2ff;-webkit-text-stroke-color:#0a4f9c;font-size:5.2cqw}
+.ttl small{display:block;margin-top:.5cqw;font-size:1.5cqw;color:#fff;-webkit-text-stroke:0;text-shadow:none;background:#7a4a22dd;border:.2cqw solid #e9b25c;border-radius:1cqw;padding:.2cqw 1.4cqw}
+.two .ttl{font-size:2.6cqw}.two .ttl b{font-size:3cqw}.two .ttl small{display:none}
+.bar{position:absolute;left:0;right:0;bottom:0;height:8.5%;background:linear-gradient(#0e3f7a,#082a57);border-top:.3cqw solid #3fa8d8;display:flex;align-items:center;gap:1cqw;padding:0 1.5cqw;color:#fff;font-size:1.6cqw;font-weight:700}
+.chip{padding:.5cqw 1.4cqw;border-radius:2cqw;background:#ffffff14;opacity:.7;white-space:nowrap}
+.chip.on{background:#2a8fd8;opacity:1;outline:.2cqw solid #bff0ff}
+.bar .sp{flex:1}.bar button{font:inherit;background:none;border:0;color:#fff;cursor:pointer}
+#ts{position:absolute;left:50%;top:15%;transform:translateX(-50%);background:#fffffff0;color:#12365a;border:.3cqw solid #3fb6e8;border-radius:1.6cqw;padding:.8cqw 2cqw;font-size:1.9cqw;font-weight:700;opacity:0;transition:opacity .3s;pointer-events:none;text-align:center}
+.tc{position:absolute;bottom:11%;width:8cqw;height:8cqw;border-radius:50%;border:.5cqw solid #86e3ff;background:#3a9fd8b0;color:#fff;font:700 4cqw Fredoka,sans-serif}
+#bl{left:3%}#br{left:13%}#bj{right:4%;width:10cqw;height:10cqw;font-size:1.9cqw;background:#1f7ed0b0}
+#ov{position:absolute;inset:0;background:#05224acf;display:none;place-items:center}
+.pn{background:#fff;color:#12365a;border:.45cqw solid #3fb6e8;border-radius:2.4cqw;padding:2.2cqw 3cqw;width:64cqw;max-height:94%;overflow:auto;box-shadow:0 .8cqw 0 #1b6e9c;font-size:max(12px,1.9cqw);text-align:center;line-height:1.35}
+.pn h1{font-size:max(26px,5.4cqw);line-height:1;color:#ff9a1c;-webkit-text-stroke:.25cqw #8c3a0a;paint-order:stroke fill;margin-bottom:.8cqw}
+.pn h2,.pn h3{margin:.6cqw 0}.pn p{margin:.7cqw 0}.sm{font-size:max(10px,1.4cqw);opacity:.8}
+.tg{display:inline-block;background:#e4f6ff;border-radius:1cqw;padding:.2cqw 1.2cqw;font-weight:700;color:#1b6e9c}
+.b{font:inherit;font-weight:700;border:.3cqw solid #fff4b0;background:linear-gradient(#ffd84a,#ff9a1c);color:#5a2c00;border-radius:1.6cqw;padding:.8cqw 2.6cqw;margin:.5cqw;cursor:pointer;box-shadow:0 .5cqw 0 #a85a10}
+.o{display:block;width:100%;font:inherit;font-weight:500;text-align:left;background:#eaf8ff;color:#12365a;border:.25cqw solid #4ab4d8;border-radius:1.2cqw;padding:.8cqw 1.4cqw;margin:.6cqw 0;cursor:pointer}
+.o:hover{background:#cfefff}.o:disabled{opacity:.4}
+.tm{height:1cqw;background:#cfe6f3;border-radius:1cqw;overflow:hidden;margin:1cqw 0}.tm i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#ffb21e,#ff5a3c)}
+table{width:100%;border-collapse:collapse;margin:1cqw 0}td,th{padding:.5cqw;border-bottom:1px solid #d3e6f0}
+*{-webkit-tap-highlight-color:transparent}
+body:not(.touch) .tc{display:none!important}
+.tc{width:11cqw;height:11cqw;font-size:5cqw;bottom:10%;backdrop-filter:blur(3px);box-shadow:0 .6cqw 0 #0a4a7a,0 0 2cqw #5fd0f066}.tc:active{transform:scale(.92);background:#5fd0f0e0}
+#bl{left:3%}#br{left:17%}#bj{right:4%;width:14cqw;height:14cqw;font-size:2.4cqw}
+.kf{outline:.35cqw solid #ff9a1c!important;outline-offset:.2cqw;filter:brightness(1.08)}
+.o i{font-style:normal;display:inline-block;min-width:3cqw;font-weight:700;color:#1b6e9c}
+@keyframes pop{from{transform:scale(.88) translateY(2cqw);opacity:0}}
+#wm{position:absolute;left:50%;bottom:9.3%;transform:translateX(-50%);z-index:5;pointer-events:none;white-space:nowrap;font-weight:700;font-size:max(10px,1.25cqw);color:#fff;background:#04162dcc;border:1px solid #ffffff55;border-radius:2cqw;padding:.2cqw 1.4cqw;text-shadow:0 1px 2px #000}
+#rot{display:none;position:fixed;inset:0;z-index:99;background:#061a33;color:#fff;place-items:center;text-align:center;font-size:20px;padding:30px}
+@media(orientation:portrait){body.touch #rot{display:grid}}
+.touch .pn{font-size:max(14px,2.3cqw)}.touch .o{padding:1.2cqw 1.6cqw}
+.keys{margin-top:1cqw;display:flex;gap:.8cqw;justify-content:center;flex-wrap:wrap}.keys kbd{background:#12365a;color:#fff;border-radius:.8cqw;padding:.2cqw 1cqw;font:700 max(10px,1.3cqw) Fredoka,sans-serif}
+#bn{position:absolute;left:0;right:0;top:36%;text-align:center;font-weight:700;font-size:6cqw;line-height:1;color:#fff;-webkit-text-stroke:.3cqw #0a4f9c;paint-order:stroke fill;text-shadow:0 .6cqw 0 #0a2a57;opacity:0;pointer-events:none;z-index:4}#bn small{font-size:2.4cqw;-webkit-text-stroke:0;color:#ffd24a}
+@keyframes bn{0%{opacity:0;transform:translateX(-10cqw)}15%,72%{opacity:1;transform:none}100%{opacity:0;transform:translateX(10cqw)}}
+#bl2,#br2,#bj2{display:none}
+.tc{z-index:3;touch-action:none;user-select:none}
+.two .tc{width:10cqw;height:10cqw;font-size:4cqw}
+.two #bl{left:2%}.two #br{left:13%}.two #bj{left:24%;right:auto;font-size:4cqw;background:#2a8fd8b0}
+.two #bl2{right:24%}.two #br2{right:13%}.two #bj2{right:2%;left:auto;background:#e0457bb0}
+#bl2,#br2{background:#e0457bb0;border-color:#ffc0d8}
+#gb{font-size:inherit}
+</style></head><body>
+<noscript><p style="color:#fff;font:700 18px system-ui;text-align:center;padding:24px">Aktifkan JavaScript di browser untuk memainkan Respira Quest.</p></noscript>
+<div id="box">
+<canvas id="c" width="960" height="540"></canvas>
+<div class="pc" id="pc0"><i class="av">👦</i><div><div id="h0"></div><div>🪙 x <span id="c0"></span> · ⭐ <span id="s0"></span></div></div></div>
+<div class="pc r" id="pc1"><i class="av">👧</i><div><div id="h1"></div><div>🪙 x <span id="c1"></span> · ⭐ <span id="s1"></span></div></div></div>
+<div class="pc r" id="lvp"><div>Level <span id="ln"></span><br><small id="lt"></small></div><span>🚩 <span id="lp"></span>/10</span></div>
+<div class="ttl">RESPIRA<b>QUEST</b><small id="sub">Misi Penyelamatan Sistem Pernapasan</small></div>
+<div id="ts"></div>
+<button class="tc" id="bl">◀</button><button class="tc" id="br">▶</button><button class="tc" id="bj">▲</button><button class="tc" id="bl2">◀</button><button class="tc" id="br2">▶</button><button class="tc" id="bj2">▲</button>
+<div class="bar"><span>🫁 Sistem Pernapasan Manusia</span><span class="sp"></span><span id="chips" style="display:flex;gap:.8cqw"></span><span class="sp"></span><button id="rs">🖥️ AUTO</button><button id="gb" title="Tombol layar (smartboard / layar sentuh)">🎮</button><button id="pb" title="Jeda (P)">⏸</button><button id="fsb" title="Layar penuh (F)">⛶</button><button id="mu" title="Suara (M)">🔊</button></div>
+<div id="wm">Dibuat oleh : Riski Hermawan</div><div id="rot"><div>📱↻<br><br>Putar HP ke mode <b>landscape</b><br>untuk bermain Respira Quest</div></div>
+<div id="bn"></div>
+<div id="ov"><div class="pn" id="pn"></div></div>
+</div>
+<script>
+const $=i=>document.getElementById(i),cv=$('c'),x=cv.getContext('2d');
+const CATS=['Jalur Udara','Organ','Gangguan','Faktor Risiko','Cara Menjaga'],ICO=['💨','🫁','🦠','🚬','💙'],
+LT=['Jalur Udara Pernapasan','Organ Pernapasan','Gangguan Pernapasan','Faktor Risiko','Cara Menjaga Paru-Paru'];
+/* format: kategori|tipe|soal|jawaban benar/opsi|...|pembahasan  (M=pilihan ganda, T=benar/salah, U=urutkan) */
+const Q=`0|M|Urutan jalur udara yang benar adalah ...|Hidung → faring → laring → trakea → bronkus|Hidung → trakea → faring → laring → bronkus|Faring → hidung → laring → bronkus → trakea|Laring → hidung → trakea → faring → bronkus|Udara masuk dari hidung lalu turun ke bronkus.
+0|M|Rambut halus dan lendir di hidung berfungsi untuk ...|Menyaring debu dan kuman|Memompa darah|Menukar gas|Mencerna makanan|Hidung menyaring, menghangatkan, dan melembapkan udara.
+0|T|Bronkus adalah percabangan trakea menuju paru-paru kanan dan kiri.|B||||Trakea bercabang menjadi dua bronkus.
+0|U|Urutkan jalur udara dari awal sampai akhir!|Hidung|Faring|Laring|Trakea|Setelah laring udara masuk ke trakea.
+0|M|Epiglotis menutup saluran napas ketika kita ...|Menelan makanan|Berlari|Tidur|Bersin|Epiglotis mencegah makanan masuk ke saluran napas.
+0|T|Bernapas lewat mulut lebih baik daripada lewat hidung.|S||||Hidung menyaring, menghangatkan, dan melembapkan udara.
+1|M|Kantung udara kecil tempat oksigen masuk ke darah disebut ...|Alveolus|Bronkus|Laring|Faring|Pertukaran O₂ dan CO₂ terjadi di alveolus.
+1|M|Saat menarik napas, diafragma bergerak ...|Turun sehingga rongga dada membesar|Naik sehingga rongga dada mengecil|Diam tidak bergerak|Bergerak ke samping|Diafragma turun, rongga dada membesar, udara masuk.
+1|T|Pita suara terdapat di laring.|B||||Laring disebut juga pangkal tenggorokan.
+1|M|Selaput pelindung paru-paru disebut ...|Pleura|Perikardium|Peritoneum|Epidermis|Pleura membungkus paru-paru.
+1|M|Pertukaran O₂ dan CO₂ di alveolus terjadi secara ...|Difusi|Pencernaan|Penyaringan|Penguapan|Gas berpindah dari konsentrasi tinggi ke rendah.
+1|U|Urutkan perjalanan udara di dalam paru-paru!|Trakea|Bronkus|Bronkiolus|Alveolus|Saluran makin lama makin kecil hingga ke alveolus.
+2|M|Napas berbunyi mengi dan sesak karena saluran napas menyempit adalah gejala ...|Asma|Sakit gigi|Diare|Gatal kulit|Asma membuat saluran napas menyempit.
+2|M|Penyakit paru akibat bakteri yang menular lewat percikan batuk adalah ...|TBC|Asma|Diabetes|Anemia|TBC disebabkan bakteri dan menular lewat percikan.
+2|T|Influenza disebabkan oleh bakteri.|S||||Influenza disebabkan oleh virus.
+2|M|Radang pada alveolus akibat infeksi yang membuat napas sesak disebut ...|Pneumonia|Rabun|Sariawan|Keseleo|Pneumonia adalah infeksi pada paru-paru.
+2|M|Saat batuk atau bersin sebaiknya kita ...|Menutup dengan tisu atau siku|Meludah sembarangan|Mendekat ke teman|Tidak menutup apa pun|Etika batuk mencegah penularan kuman.
+2|T|Batuk lebih dari 2 minggu bisa menjadi gejala TBC.|B||||Segera periksa ke dokter atau puskesmas.
+3|M|Asap rokok berbahaya karena ...|Mengandung zat beracun yang merusak paru-paru|Membuat udara segar|Menambah oksigen|Menguatkan alveolus|Asap rokok memiliki ribuan zat berbahaya.
+3|T|Perokok pasif ikut berisiko karena menghirup asap rokok orang lain.|B||||Asap rokok orang lain tetap berbahaya.
+3|M|Manakah yang BUKAN faktor risiko gangguan pernapasan?|Minum air putih cukup|Merokok|Menghirup debu|Tertular kuman|Air putih membantu menjaga lendir saluran napas.
+3|M|Debu halus PM2.5 berbahaya karena ...|Sangat kecil sehingga masuk jauh ke paru-paru|Terlalu besar untuk terhirup|Hanya menempel di rambut|Berbau harum|Partikel kecil mampu mencapai alveolus.
+3|T|Dinding lembap berjamur dapat memicu alergi dan gangguan napas.|B||||Spora jamur terhirup dan mengiritasi napas.
+3|M|Polusi udara di dalam ruangan dapat berasal dari ...|Obat nyamuk bakar dan asap rokok|Tanaman hias|Jendela terbuka|Kipas yang bersih|Asap di ruang tertutup mudah terhirup.
+4|M|Masker membantu menjaga paru-paru karena ...|Menyaring debu dan mengurangi percikan kuman|Menambah oksigen|Menghangatkan paru-paru|Menguatkan suara|Pakai masker saat udara berdebu atau saat sakit.
+4|T|Membakar sampah di dekat rumah baik untuk kualitas udara.|S||||Asap pembakaran sampah mencemari udara.
+4|M|Olahraga teratur membuat paru-paru ...|Lebih kuat dan napas lebih efisien|Cepat rusak|Mengecil|Berhenti bekerja|Olahraga melatih otot pernapasan.
+4|M|Cara membersihkan debu yang lebih sehat adalah ...|Mengelap dengan kain lembap|Mengibaskan debu|Membiarkan debu|Membakar sampah|Kain lembap mengangkat debu tanpa menerbangkannya.
+4|U|Urutkan napas diafragma yang benar!|Tarik napas lewat hidung|Perut mengembang|Tahan sebentar|Embuskan perlahan|Latihan ini membuat napas lebih tenang.
+4|M|Kapan sebaiknya periksa ke dokter?|Batuk lebih dari 2 minggu atau sesak napas|Bersin satu kali|Saat lapar|Saat mengantuk|Batuk lama dan sesak perlu diperiksa.
+0|M|Setelah melewati hidung, udara masuk ke ...|Faring|Laring|Bronkus|Alveolus|Dari rongga hidung udara menuju faring (tekak).|1
+0|M|Pangkal tenggorokan tempat pita suara disebut ...|Laring|Faring|Trakea|Esofagus|Laring juga dikenal sebagai kotak suara.|1
+0|T|Trakea disebut juga batang tenggorokan.|B||||Trakea adalah pipa udara yang ditopang tulang rawan berbentuk cincin.|1
+0|M|Tulang rawan berbentuk cincin pada trakea berfungsi agar ...|Saluran tetap terbuka|Udara menjadi hangat|Makanan masuk|Darah mengalir|Cincin tulang rawan menjaga trakea tidak mengempis.|2
+0|K|Pilih DUA bagian yang dilewati udara saat bernapas!|Trakea|Laring|Esofagus|Lambung|Esofagus dan lambung termasuk sistem pencernaan.|2
+0|M|Lendir di rongga hidung berfungsi untuk ...|Menangkap debu dan kuman|Menghasilkan suara|Menyimpan oksigen|Memompa udara|Debu dan kuman menempel pada lendir lalu dikeluarkan.|1
+0|M|Bersin adalah cara tubuh untuk ...|Mengeluarkan benda asing dari hidung|Menambah oksigen|Menurunkan suhu|Mencerna makanan|Bersin adalah refleks pembersih saluran napas.|2
+0|T|Makanan dan udara sama-sama melewati faring.|B||||Faring adalah persimpangan jalur udara dan makanan.|2
+0|M|Bagian yang bercabang dua menuju paru-paru kanan dan kiri adalah ...|Bronkus|Laring|Faring|Rongga hidung|Trakea bercabang menjadi bronkus kanan dan kiri.|1
+0|M|Dito tersedak karena makanan masuk ke saluran napas. Bagian yang gagal menutup adalah ...|Epiglotis|Diafragma|Pleura|Bronkus|Epiglotis menutup laring saat menelan.|3
+0|M|Udara dingin terasa lebih hangat saat sampai di paru-paru karena ...|Dihangatkan di rongga hidung|Dibekukan di faring|Disaring alveolus|Dilembapkan pleura|Hidung menghangatkan dan melembapkan udara.|3
+1|M|Berapa jumlah paru-paru manusia?|Dua|Satu|Tiga|Empat|Manusia punya paru-paru kanan dan kiri.|1
+1|M|Paru-paru kanan memiliki ... lobus.|Tiga|Dua|Empat|Lima|Kanan 3 lobus, kiri 2 lobus (memberi ruang bagi jantung).|3
+1|T|Paru-paru kiri lebih kecil karena berbagi ruang dengan jantung.|B||||Jantung berada agak ke kiri.|3
+1|M|Gelembung kecil di ujung bronkiolus disebut ...|Alveolus|Pleura|Laring|Trakea|Jumlahnya jutaan sehingga permukaan tukar gas luas.|1
+1|K|Pilih DUA fungsi sistem pernapasan!|Mengambil oksigen|Mengeluarkan karbon dioksida|Memompa darah|Menyerap sari makanan|Jantung memompa darah; usus menyerap sari makanan.|2
+1|M|Alveolus dikelilingi pembuluh darah kecil yang disebut ...|Kapiler|Arteri besar|Vena kava|Bronkus|Kapiler memungkinkan gas berpindah ke darah.|2
+1|M|Saat mengembuskan napas, diafragma ...|Naik dan rongga dada mengecil|Turun dan rongga dada membesar|Tetap diam|Terputus|Volume dada mengecil sehingga udara keluar.|2
+1|T|Tulang rusuk ikut melindungi paru-paru.|B||||Rangka rongga dada melindungi paru-paru dan jantung.|1
+1|U|Urutkan proses menarik napas!|Diafragma turun|Rongga dada membesar|Tekanan udara dalam paru turun|Udara masuk paru-paru|Perubahan volume dan tekanan menggerakkan udara.|3
+1|M|Zat dalam sel darah merah yang mengikat oksigen adalah ...|Hemoglobin|Insulin|Klorofil|Keratin|Hemoglobin mengikat oksigen.|3
+1|M|Gas yang diangkut darah dari alveolus ke seluruh tubuh adalah ...|Oksigen|Karbon dioksida|Nitrogen|Helium|Oksigen dibawa sel darah merah.|1
+2|M|Penyakit saluran napas atas yang disertai pilek dan bersin adalah ...|Flu|Patah tulang|Diare|Cacar air|Flu menyerang hidung dan tenggorokan.|1
+2|M|ISPA adalah singkatan dari ...|Infeksi Saluran Pernapasan Akut|Infeksi Sistem Paru Aktif|Imun Saluran Pernapasan Atas|Infeksi Sendi Paru Akut|ISPA sering disebabkan virus atau bakteri.|2
+2|T|Asma bisa kambuh karena debu atau udara dingin.|B||||Pemicu: debu, asap, udara dingin, dan kelelahan.|1
+2|K|Pilih DUA gejala gangguan pernapasan!|Batuk berkepanjangan|Sesak napas|Gigi berlubang|Mata minus|Gigi berlubang dan mata minus bukan gangguan pernapasan.|1
+2|M|Penyakit yang merusak dinding alveolus akibat merokok bertahun-tahun adalah ...|Emfisema|Rabun senja|Anemia|Kudis|Emfisema menurunkan kemampuan tukar gas.|3
+2|M|Bronkitis adalah peradangan pada ...|Bronkus|Lambung|Tulang|Mata|Bronkitis meradang pada saluran bronkus.|2
+2|M|Dina batuk dan demam. Agar tidak menulari teman, ia sebaiknya ...|Memakai masker dan istirahat|Tetap bermain bersama|Berbagi minuman|Menahan batuk|Masker dan istirahat mencegah penularan.|1
+2|T|Antibiotik efektif untuk mengobati flu yang disebabkan virus.|S||||Antibiotik melawan bakteri, bukan virus.|3
+2|M|Vaksin dapat membantu mencegah ...|Beberapa penyakit infeksi pernapasan|Rabun jauh|Patah tulang|Kegemukan|Vaksin melatih sistem imun.|2
+2|U|Urutkan cara memakai masker dengan benar!|Cuci tangan|Pasang masker menutup hidung dan mulut|Rapatkan bagian hidung|Jangan sentuh bagian depan masker|Langkah yang benar mencegah kuman.|2
+2|M|Batuk berdahak darah dan berat badan turun adalah gejala ...|TBC|Pilek|Alergi|Maag|TBC perlu pengobatan teratur sampai tuntas.|3
+3|M|Perokok pasif adalah orang yang ...|Menghirup asap rokok orang lain|Tidak pernah olahraga|Suka makan manis|Tidur larut|Asap rokok orang lain tetap berbahaya.|1
+3|T|Membakar sampah menghasilkan asap yang aman untuk paru-paru.|S||||Asap pembakaran mengandung zat berbahaya.|1
+3|K|Pilih DUA penyebab udara tercemar!|Asap kendaraan|Asap pabrik|Pohon rindang|Air hujan|Pohon justru membantu membersihkan udara.|1
+3|M|Debu yang terhirup terus-menerus dapat ...|Mengiritasi dan merusak saluran napas|Menguatkan paru-paru|Menambah oksigen|Menghangatkan paru|Paparan debu jangka panjang berbahaya.|2
+3|M|Ruangan lembap dan berjamur berisiko memicu ...|Alergi dan gangguan napas|Patah tulang|Rabun|Sariawan|Spora jamur memicu alergi dan asma.|2
+3|T|Faktor keturunan bisa memengaruhi risiko asma.|B||||Riwayat keluarga meningkatkan risiko.|2
+3|M|Zat dalam rokok yang menyebabkan kecanduan adalah ...|Nikotin|Oksigen|Vitamin|Kalsium|Nikotin membuat orang sulit berhenti merokok.|2
+3|M|Mengapa kabut asap berbahaya bagi anak-anak?|Paru-paru anak masih berkembang|Anak tidak bernapas|Asap menyehatkan|Asap tidak berbau|Anak bernapas lebih cepat dan paru-parunya sensitif.|3
+3|U|Urutkan dampak asap rokok pada tubuh!|Asap terhirup|Silia saluran napas rusak|Kuman mudah menetap|Risiko penyakit paru meningkat|Kerusakan bertahap menimbulkan penyakit.|3
+3|M|Kendaraan tanpa perawatan yang berasap hitam menambah ...|Polusi udara|Oksigen|Kelembapan|Udara dingin|Gas buang mencemari udara.|1
+3|T|Berada lama di jalan raya padat tanpa masker menambah paparan polusi.|B||||Gas buang kendaraan ikut terhirup.|2
+4|M|Duduk tegak membantu ...|Paru-paru mengembang optimal|Paru-paru mengempis|Darah berhenti|Otot rahang lelah|Postur tegak memberi ruang bagi paru-paru.|2
+4|K|Pilih DUA kebiasaan yang menjaga paru-paru!|Berolahraga teratur|Menghindari asap rokok|Membakar sampah|Begadang tiap malam|Dua pilihan pertama adalah kebiasaan sehat.|1
+4|M|Latihan pernapasan perut dilakukan dengan ...|Menarik napas dalam lewat hidung, embuskan perlahan|Menahan napas lama|Bernapas cepat terus|Menutup hidung|Napas dalam melatih diafragma.|2
+4|T|Menanam tanaman membantu udara lebih bersih.|B||||Tumbuhan menyerap CO₂ dan menghasilkan O₂.|1
+4|M|Makan buah dan sayur membantu ...|Daya tahan tubuh|Menambah polusi|Menutup hidung|Menyempitkan paru|Gizi baik memperkuat imun.|1
+4|M|Membuka jendela setiap pagi bermanfaat untuk ...|Pertukaran udara bersih|Menambah debu|Mengurangi oksigen|Menghalangi cahaya|Ventilasi menjaga kualitas udara.|1
+4|M|Berenang baik untuk paru-paru karena ...|Melatih pengaturan napas|Membuat paru kecil|Menghentikan napas|Merusak alveolus|Mengatur napas saat berenang melatih paru.|2
+4|U|Urutkan langkah mencuci tangan yang benar!|Basahi tangan dengan air mengalir|Gosok dengan sabun|Bilas sampai bersih|Keringkan dengan kain bersih|Cuci tangan mengurangi penularan ISPA.|1
+4|M|Jika ada asap tebal di sekitarmu, tindakan terbaik adalah ...|Menjauh dan memakai masker|Mendekat melihat|Bernapas dalam-dalam|Bermain di sana|Hindari paparan asap.|2
+4|M|Tidur cukup membantu ...|Tubuh melawan infeksi|Menambah kuman|Menyumbat hidung|Merusak paru|Tidur memperkuat sistem imun.|1
+4|T|Berhenti merokok membantu paru-paru pulih bertahap.|B||||Paru-paru bisa membaik setelah berhenti merokok.|2
+4|M|Agar polusi berkurang, berangkat ke sekolah yang dekat sebaiknya ...|Berjalan kaki atau bersepeda|Naik motor sendirian|Diantar mobil|Naik kendaraan berasap|Mengurangi emisi membantu udara bersih.|3`
+.split('\n').map(l=>{const a=l.split('|');return{c:+a[0],t:a[1],q:a[2],o:a.slice(3,7),w:a[7]||'',l:+a[8]||2}});
+const sh=a=>a.map(v=>[Math.random(),v]).sort((p,q)=>p[0]-q[0]).map(v=>v[1]);
+const rng=s=>()=>(s=s*16807%2147483647)/2147483647;
+const rr=(a,b,w,h,r)=>{x.beginPath();x.roundRect(a,b,w,h,r)};
+const el=(a,b,rx,ry,c,r)=>{x.fillStyle=c;x.beginPath();x.ellipse(a,b,rx,ry,r||0,0,7);x.fill()};
+let AC,mute=0;
+function snd(f,d,ty,f2){if(mute)return;try{AC=AC||new AudioContext;const o=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime;o.type=ty||'square';o.frequency.setValueAtTime(f,n);if(f2)o.frequency.exponentialRampToValueAtTime(f2,n+d);g.gain.setValueAtTime(.05,n);g.gain.exponentialRampToValueAtTime(.001,n+d);o.connect(g);g.connect(AC.destination);if(RV)g.connect(RV);o.start();o.stop(n+d)}catch(e){}}
+const chord=a=>a.forEach((f,i)=>setTimeout(()=>snd(f,.15),i*90));
+let Hz=[],It=[],B=null,shk=0,seen=new Set(),st='menu',mode=1,lv=1,t=0,pl=[],S=[],G=[],E=[],Co=[],Sg=[],Pt=[],F={x:0,y:0},LEN=0,used=0,total=4,ask=null,fd=-1,tm=0,C0=0,VW=960,TY=0,VH=540;
+function mkP(i){return{i,x:70,y:380,w:30,h:54,vx:0,vy:0,on:0,dir:1,hp:3,sc:0,co:0,inv:0,done:0,out:0,a:0,ok:0,ng:0,sh:0,cb:0,cp:{x:70,y:380},k:{l:0,r:0,j:0}}}
+const WN=l=>(l-1)>>1,LVN=10;
+function open_(){return used>=total&&(!B||B.hp<=0)}
+function pick(L,n){const W=WN(L),hi=L%2==0,tr=hi?[2,3]:[1,2];const a=Q.filter(q=>q.c==W&&!seen.has(q)),b=a.filter(q=>tr.includes(q.l));const base=sh(b.length>=n-1?b:(a.length>=n-1?a:Q.filter(q=>q.c==W))),o=sh(Q.filter(q=>q.c!=W&&!seen.has(q)&&tr.includes(q.l)));const r=base.slice(0,n-1).concat(o.length?o[0]:base[n-1]);r.forEach(q=>seen.add(q));return sh(r)}
+function rch(dy){let y=0,v=-13.4,xx=0;for(let f=0;f<200;f++){v=Math.min(v+.62,16);y+=v;xx+=4.8;if(v>0&&y>=dy)return xx}return 0}
+function bq(){const a=Q.filter(q=>q.l>=2);return a[Math.random()*a.length|0]}
+function build(L){const r=rng(L*977+13),boss=L%2==0;S=[{x:-300,y:440,w:760,h:200,g:1}];G=[S[0]];E=[];Co=[];Hz=[];It=[];B=null;Sg=[{x:100,y:440,t:'Mulai Petualanganmu!'}];let px=460,py=440,len=3000+L*600;
+while(px<len){let gp=45+r()*Math.min(40+L*12,120);const py0=py;py=Math.max(330,Math.min(470,py+(r()-.5)*(110+L*6)));gp=Math.min(gp,Math.max(45,rch(py-py0)-42));
+if(L>=3&&r()<.2&&G.length>2){gp=250;S.push({x:px+10,y:Math.round((py0+py)/2),w:120,h:26,mv:1,mx0:px+10,mx1:px+gp-130,md:1,dx:0})}
+px+=gp;const w=Math.max(120,170+r()*130-L*8),s={x:px,y:py,w,h:640-py,g:1};S.push(s);G.push(s);
+for(let i=0;i<4;i++)if(r()<.8)Co.push({x:px+30+i*(w-60)/3,y:py-45-(i%3?22:0)});
+const rv=r();if(w>150&&rv<.5+L*.05)E.push({x:px+w/2,y:py-20,y0:py-20,x0:px+22,x1:px+w-22,d:1,c:Math.floor(r()*3),a:1});
+else if(L>=3&&rv<.7+L*.03)E.push({x:px+w/2,y:py-110,y0:py-110,x0:px+10,x1:px+w-10,d:1,c:Math.floor(r()*3),a:1,f:1});
+if(L>=3&&w>=150&&r()<.2+L*.02&&G.length>3)Hz.push({x:px+w*.35,y:py-56,w:w*.3,h:44});
+if(G.length==4)Sg.push({x:px+20,y:py,t:'Hindari Polusi!'});px+=w}
+px+=70;const fw=boss?1000:520;S.push({x:px,y:440,w:fw,h:200,g:1});F={x:px+(boss?880:330),y:440};LEN=px+fw;
+if(boss){const mh=2+(L>>2);B={x:px+420,y:440-62,x0:px+130,x1:px+700,d:1,hp:mh,max:mh,inv:0,fl:0};Sg.push({x:px+60,y:440,t:'Arena Raja Kuman!'})}
+[.35,.7].forEach((f,i)=>{const s=G[Math.floor(G.length*f)];if(s)It.push({x:s.x+s.w/2,y:s.y-80,k:i?'m':'h'})});
+used=0;total=CFG.n||(4+(L>2?1:0)+(L>7?1:0));const n=G.length-1,ql=pick(L,total);
+ql.forEach((q,k)=>{const s=G[1+Math.floor((k+.5)*n/total)],x0=s.x+s.w/2-100,y=s.y-130;for(let i=0;i<5;i++)S.push(i==2?{x:x0+i*40,y,w:40,h:40,q:1,qd:q}:{x:x0+i*40,y,w:40,h:40,b:1});
+for(let i=0;i<4;i++)Co.push({x:x0+20+i*53,y:y-45})})}
+function startLv(){build(lv);pl.forEach((p,i)=>{Object.assign(p,{cx:null,x:70+i*34,y:380,vx:0,vy:0,hp:CFG.hp,sh:0,cb:0,inv:60,done:0,out:0,cp:{x:70+i*34,y:380},k:{l:0,r:0,j:0}})});fd=-1;Pt=[];st='play';$('ov').style.display='none';
+$('ln').textContent=lv;$('lt').textContent=LT[WN(lv)]+(lv%2?' · Tahap 1':' · Tahap 2 (Boss)');$('lp').textContent=lv;$('sub').textContent='Level '+lv+' · '+LT[WN(lv)];
+$('chips').innerHTML=CATS.map((c,i)=>`<span class="chip${i==WN(lv)?' on':''}">${ICO[i]} ${c}</span>`).join('');toast(lv%2?'Sundul blok ? dari bawah untuk menjawab soal, lalu masuki portal!':'👑 Tahap Boss! Injak Raja Kuman, jawab soalnya sampai dia tumbang!',260);snd(520,.2)}
+function go(m,L){mode=m;seen=new Set();pl=[mkP(0)];if(m==2)pl.push(mkP(1));pl.forEach(p=>p.sc=0);lv=L||1;document.body.classList.toggle('two',m==2);$('pc1').style.display=m==2?'flex':'none';$('lvp').style.display=m==1?'flex':'none';$('bl').style.display=$('br').style.display=$('bj').style.display=m==1?'block':'none';startLv()}
+function show(h){$('ov').style.display='grid';$('pn').innerHTML=h}
+function menu(){st='menu';pl=[mkP(0)];pl[0].out=1;mode=1;build(1);$('pc1').style.display='none';$('lvp').style.display='none';document.body.classList.remove('two');$('pc0').style.display='none';
+show(`<h1>RESPIRA QUEST</h1><h3>Misi Penyelamatan Sistem Pernapasan</h3><p>Kumpulkan koin paru-paru, injak kuman, sundul blok <b>?</b> dari bawah untuk menjawab soal, lalu masuki portal menuju paru-paru sehat! ${LVN} level di 5 dunia · ${Q.length} soal · 4 jenis soal · boss &amp; power-up!</p><button class="b" onclick="go(1)">👤 1 Pemain</button><button class="b" onclick="go(2)">👥 2 Pemain (Duel)</button><button class="b" onclick="sel()">🗺️ Pilih Level</button><button class="b" onclick="cfgp()">⚙️ Pengaturan</button><div class="keys"><kbd>← →</kbd><kbd>A D</kbd> jalan · <kbd>↑</kbd><kbd>W</kbd><kbd>Spasi</kbd> lompat · <kbd>1-4</kbd> / <kbd>A-D</kbd> jawab · <kbd>Enter</kbd> lanjut · <kbd>P</kbd> jeda · <kbd>F</kbd> layar penuh · <kbd>M</kbd> suara</div><p class="sm">HP: pakai tombol layar. 2 Pemain (keyboard): P1 = A D W · P2 = ← → ↑.</p>`)}
+function toast(s,n){$('ts').textContent=s;$('ts').style.opacity=1;tm=n||150}
+function burst(a,b,c,n){for(let i=0;i<n;i++)Pt.push({x:a,y:b,vx:(Math.random()-.5)*6,vy:-Math.random()*5,l:30,c})}
+const ov=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
+function hit(p,f){if(p.inv&&!f)return;if(p.sh&&!f){p.sh=0;p.inv=70;snd(500,.15,'triangle',900);burst(p.x+15,p.y+20,'#9fe8ff',12);toast('😷 Masker menyelamatkanmu!',90);return}p.hp--;shk=9;p.inv=110;snd(200,.3,'sawtooth',70);burst(p.x+15,p.y+20,'#ff5a3c',10);if(p.hp<=0)p.out=1;else if(!f)p.vy=-8}
+function mv(p){if(p.out||p.done)return;p.inv&&p.inv--;const k=p.k,d=k.r-k.l;p.vx=d*4.8;if(d){p.dir=d;p.a+=.35}
+if(k.j&&p.on){p.vy=-13.4;p.on=0;snd(380,.16,'square',860)}p.vy=Math.min(p.vy+.62,16);
+p.x+=p.vx;for(const s of S)if(ov(p,s)){if(p.vx>0)p.x=s.x-p.w;else if(p.vx<0)p.x=s.x+s.w}
+p.y+=p.vy;p.on=0;for(const s of S)if(ov(p,s)){if(p.vy>0){p.y=s.y-p.h;p.on=1;if(s.mv)p.x+=s.dx||0;if(s.g)p.cp={x:Math.min(Math.max(p.x,s.x+8),s.x+s.w-40),y:s.y-p.h-2}}else{p.y=s.y+s.h;if(s.q&&!s.u){s.u=1;p.vy=0;return askQ(p,s)}}p.vy=0}
+if(p.x<-250)p.x=-250;
+if(p.y>660){hit(p,1);if(!p.out){p.x=p.cp.x;p.y=p.cp.y;p.vx=p.vy=0}}
+for(const c of Co)if(!c.g&&Math.abs(c.x-p.x-15)<26&&Math.abs(c.y-p.y-27)<34){c.g=1;p.co++;p.sc+=10;snd(990,.07);snd(1320,.12);burst(c.x,c.y,'#ffd23a',5)}
+for(const h of Hz)if(ov(p,h))hit(p);for(const i of It)if(!i.g&&Math.abs(i.x-p.x-15)<28&&Math.abs(i.y-p.y-27)<34){i.g=1;if(i.k=='h')p.hp=Math.min(4,p.hp+1);else p.sh=1;snd(880,.1);chord([660,880]);burst(i.x,i.y,'#fff',12);toast(i.k=='h'?'❤️ Nyawa bertambah!':'😷 Masker aktif! Kebal 1 serangan',100)}
+const P={x:F.x-45,y:F.y-170,w:90,h:170};if(ov(p,P)){if(open_()){p.done=1;let b=200+p.hp*50;if(fd<0){fd=600;if(mode==2)b+=300}p.sc+=b;chord([523,659,784,1047]);toast('Pemain '+(p.i+1)+' sampai di portal! +'+b,200)}else toast(used>=total?'Portal terkunci! Kalahkan Raja Kuman dulu!':'Portal terkunci! Masih ada '+(total-used)+' blok ? lagi',90)}}
+function en(e){if(!e.a)return;e.x+=e.d*(e.f?1.5:1.1);if(e.f)e.y=e.y0+Math.sin(t/22+e.x0)*38;if(e.x>e.x1||e.x<e.x0)e.d*=-1;pl.forEach(p=>{if(p.out||p.done)return;if(Math.abs(p.x+15-e.x)<33&&Math.abs(p.y+27-e.y)<45){if(p.vy>1&&p.y+p.h<e.y+10){e.a=0;p.vy=-10;p.sc+=50;snd(260,.12,'sawtooth',90);burst(e.x,e.y,['#8a3fc7','#555','#d3342f'][e.c],14)}else hit(p)}})}
+function upd(){t++;if(MG)MG.gain.setTargetAtTime(mute?0:(st=='ask'||st=='fb')?.15:.5,AC.currentTime,.1);if(tm>0&&--tm==0)$('ts').style.opacity=0;
+if(st=='menu'){pl[0].x=100+(t*1.4)%1500;return}
+if(st=='ask'){ask.t-=1/60;const b=$('tb');if(b)b.style.width=Math.max(0,ask.t/ask.tt*100)+'%';if(ask.t<=0)res(0);return}
+if(st!='play')return;S.forEach(s=>{if(s.mv){s.dx=s.md*1.3;s.x+=s.dx;if(s.x>s.mx1||s.x<s.mx0)s.md*=-1}});pl.forEach(mv);E.forEach(en);boss();shk*=.88;Pt.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vy+=.2;q.l--});Pt=Pt.filter(q=>q.l>0);
+if(fd>0&&mode==2){fd--;if(!(fd%60))toast('Cepat! Waktu tersisa '+Math.ceil(fd/60)+' detik',70)}
+if(pl.every(p=>p.done||p.out)||(mode==2&&fd==0))endLv()}
+function boss(){if(!B||B.hp<=0)return;const sp=1.5+(B.max-B.hp)*.6;B.x+=B.d*sp;if(B.x>B.x1||B.x<B.x0)B.d*=-1;if(B.inv>0)B.inv--;if(B.fl>0)B.fl--;
+pl.forEach(p=>{if(p.out||p.done||B.inv>0||st!='play')return;if(Math.abs(p.x+15-B.x)<68&&Math.abs(p.y+27-B.y)<84){if(p.vy>1&&p.y+p.h<B.y-30){B.inv=120;p.vy=-13;shk=12;snd(160,.3,'sawtooth',60);askQ(p,{qd:bq(),boss:1})}else hit(p)}})}
+function mx(){try{return+localStorage.getItem('rq_max')||1}catch(e){return 1}}
+function smx(v){try{if(v>mx())localStorage.setItem('rq_max',Math.min(v,LVN))}catch(e){}}
+function sel(){let h='<h1>Pilih Level</h1><p class="sm">Level terbuka: '+mx()+' / '+LVN+' · mainkan berurutan untuk membuka level baru</p><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.6cqw">';for(let l=1;l<=LVN;l++)h+=`<button class="b" ${l>mx()?'disabled style="opacity:.35"':''} onclick="go(1,${l})">${l%2?'':'👑'}${l}<br><small>${CATS[WN(l)]}</small></button>`;show(h+'</div><button class="b" onclick="menu()">⬅ Kembali</button>')}
+const FACTS=['Rambut halus dan lendir di hidung menyaring debu sebelum udara masuk ke paru-paru.','Dalam sehari kita menarik napas sekitar 20.000 kali!','Paru-paru memiliki ratusan juta alveolus tempat pertukaran gas.','Permukaan seluruh alveolus jika dibentangkan sekitar 70 meter persegi.','Pneumonia menyerang alveolus. Cuci tangan dan vaksin membantu mencegahnya.','Batuk lebih dari 2 minggu perlu diperiksa ke puskesmas atau dokter.','Asap rokok mengandung ribuan zat kimia, banyak yang berbahaya.','Menanam pohon membantu menyaring debu dan menghasilkan oksigen.','Olahraga teratur membuat otot pernapasan lebih kuat.','Udara bersih hak semua orang. Jaga lingkungan, jaga paru-paru!'];
+function askQ(p,s){st='ask';if(!s.boss)used++;const T0=(/[UK]/.test(s.qd.t)?30:20)*(CFG.nt?99:CFG.tm);ask={p,q:s.qd,t:T0,tt:T0,seq:[],sel:[],boss:s.boss};ask.ord=sh([0,1,2,3]);snd(660,.2);drawAsk()}
+function drawAsk(){const{q,p}=ask;let h=`<span class="tg">${mode==2?'Giliran Pemain '+(p.i+1)+' · ':''}${ICO[q.c]} ${CATS[q.c]} · ${{M:'Pilihan Ganda',T:'Benar / Salah',U:'Urutkan',K:'Pilih Semua yang Benar'}[q.t]}</span><h3>${q.q}</h3><div class="tm"><i id="tb"></i></div>`;
+if(q.t=='T')h+=['Benar','Salah'].map((v,i)=>`<button class="o" onclick="ans(${i})">${v}</button>`).join('');
+else{if(q.t=='U'&&ask.seq.length)h+=`<p class="sm">Urutanmu: ${ask.seq.map(k=>q.o[k]).join(' → ')}</p>`;h+=ask.ord.map(k=>`<button class="o" ${ask.seq.includes(k)?'disabled':''}${q.t=='K'&&ask.sel.includes(k)?' style="background:#bfe9ff;border-color:#1b6e9c;font-weight:700"':''} onclick="ans(${k})">${q.o[k]}</button>`).join('')+(q.t=='K'?`<button class="b" ${ask.sel.length==2?'':'disabled'} onclick="chk()">Periksa ✔</button>`:'')}show(h)}
+function ans(k){const q=ask.q;let ok;if(q.t=='T')ok=(k==0)==(q.o[0]=='B');else if(q.t=='M')ok=k==0;else if(q.t=='K'){const i=ask.sel.indexOf(k);if(i<0){if(ask.sel.length<2)ask.sel.push(k)}else ask.sel.splice(i,1);snd(600,.04);return drawAsk()}else{if(k!=ask.seq.length)return res(0);ask.seq.push(k);if(ask.seq.length<4){snd(700,.05);return drawAsk()}ok=1}res(ok)}
+function chk(){res(ask.sel.every(k=>k<2))}
+function res(ok){const{p,q}=ask,sol=q.t=='T'?(q.o[0]=='B'?'Benar':'Salah'):q.t=='M'?q.o[0]:q.t=='K'?q.o[0]+' & '+q.o[1]:q.o.join(' → ');st='fb';
+let bn=100+Math.ceil(ask.t*3);if(ok){p.cb=(p.cb||0)+1;if(p.cb>=3)bn+=Math.min(5,p.cb-2)*30;p.sc+=bn;p.co+=3;p.ok++;chord([523,659,784,1047])}else{p.cb=0;p.ng++;hit(p,1);snd(180,.4,'triangle',110)}
+if(ask.boss&&ok){B.hp--;B.fl=50;shk=14;burst(B.x,B.y,'#ff5a3c',30);if(B.hp<=0){p.sc+=500;chord([392,523,659,784,1047])}}
+show(`<h2>${ok?'✅ Benar! Hebat!':'❌ Belum tepat'}</h2><p>${ok?'+'+bn+' poin & 3 koin'+(p.cb>=3?' · 🔥 Kombo x'+p.cb+'!':'')+(ask.boss?(B.hp<=0?' · 👑 Raja Kuman tumbang!':' · Raja Kuman terluka!'):''):'Kamu kehilangan 1 nyawa'}</p><p><b>Jawaban:</b> ${sol}</p><p class="sm">${q.w}</p><button class="b" onclick="resume()">Lanjut ▶</button>`)}
+function resume(){pl.forEach(p=>p.k={l:0,r:0,j:0});$('ov').style.display='none';st=pl.every(p=>p.done||p.out)?'play':'play'}
+function endLv(){st='end';if(!pl.every(p=>p.out))smx(lv+1);const ko=pl.every(p=>p.out),last=lv==LVN;
+const rows=pl.map((p,i)=>`<tr><td>${i?'👧':'👦'} Pemain ${i+1}</td><td>${p.done?'🚩 Selesai':p.out?'💔 Gugur':'⏱️ Telat'}</td><td>🪙 ${p.co}</td><td>✔ ${p.ok}/${p.ok+p.ng}</td><td><b>⭐ ${p.sc}</b></td></tr>`).join('');
+let w='';if(mode==2&&last){const a=pl[0].sc,b=pl[1].sc;w=`<h2>🏆 ${a==b?'Skor seri! Kalian sama hebat!':'Pemain '+(a>b?1:2)+' juara!'}</h2>`}
+else if(last&&!ko){const r=pl[0].ok/Math.max(1,pl[0].ok+pl[0].ng);w=`<h2>🎉 Paru-paru berhasil diselamatkan!</h2><p style="font-size:2.6cqw">${r>.85?'⭐⭐⭐':r>.6?'⭐⭐':'⭐'}</p>`}
+show(`<h1>${ko?'GAME OVER':last?'TAMAT!':'LEVEL '+lv+' SELESAI'}</h1>${w}<table>${rows}</table><p class="sm">💡 ${FACTS[lv-1]}</p>${ko?'<p>Kuman menang kali ini. Coba lagi!</p><button class="b" onclick="startLv()">🔁 Ulangi Level</button>':last?'<button class="b" onclick="menu()">🏠 Menu Utama</button>':'<button class="b" onclick="lv++;startLv()">Level Berikutnya ▶</button>'}`)}
+function hud(){pl.forEach((p,i)=>{$('h'+i).textContent=p.out?'💔 KO':'❤️'.repeat(Math.max(p.hp,0))+'🖤'.repeat(Math.max(0,3-Math.max(p.hp,0)))+(p.sh?' 😷':'')+(p.cb>=3?' 🔥'+p.cb:'');$('c'+i).textContent=String(p.co).padStart(3,'0');$('s'+i).textContent=p.sc});if(st!='menu')$('pc0').style.display='flex'}
+/* ===== Gambar ===== */
+const PAL=[['#3fa9ee','#c3ecff'],['#5aa0ee','#ffe2ae'],['#6f86d6','#f6c5d8'],['#8c9aab','#dccdb4'],['#38c4e8','#d2fff2']];
+function lay(f,K,cb){const o=C0*f,i0=Math.floor(o/K)-1,n=Math.ceil(VW/K)+3;for(let i=i0;i<i0+n;i++){x.save();x.translate(i*K-o,0);cb(i);x.restore()}}
+function cloud(a,b,s){x.globalAlpha=.9;[[0,0,46],[40,-12,38],[-40,6,32],[80,8,30]].forEach(c=>el(a+c[0]*s,b+c[1]*s,c[2]*s,c[2]*s*.6,'#fff'));x.globalAlpha=1}
+function sky0(L){const g=x.createLinearGradient(0,TY,0,TY+VH),p=PAL[WN(L)];g.addColorStop(0,p[0]);g.addColorStop(1,p[1]);x.fillStyle=g;x.fillRect(0,TY-5,VW,VH+10);farFX(L);
+lay(.08,430,i=>cloud(60+(i*97%130),TY+60+(i*53%90),1+.3*(i%3)));
+lay(.14,1400,i=>{const X=400,Y=130+(i*37%50);x.fillStyle='#8a6a4a';x.beginPath();x.moveTo(X-170,Y+20);x.lineTo(X+170,Y+20);x.lineTo(X+40,Y+150);x.lineTo(X-30,Y+170);x.fill();el(X,Y+18,185,26,'#74c957');
+const g=x.createLinearGradient(0,Y+30,0,Y+420);g.addColorStop(0,'#c4f4ff');g.addColorStop(1,'#c4f4ff00');x.fillStyle=g;x.fillRect(X+10,Y+30,34,400);
+el(X-30,Y-40,36,56,'#f48fa0',.15);el(X+34,Y-40,36,56,'#f48fa0',-.15);el(X-30,Y-36,26,44,'#ffb0bf',.15);el(X+34,Y-36,26,44,'#ffb0bf',-.15);x.fillStyle='#f6b3bf';x.fillRect(X-4,Y-120,8,70)});
+lay(.3,380,i=>{const X=40+(i*131%200),H=170+(i*57%150),Y=540-H;x.fillStyle='#5d93a8cc';rr(X,Y,120,H+200,16);x.fill();x.fillStyle='#6ec25acc';rr(X-6,Y-6,132,22,10);x.fill();el(X+32,Y-20,24,22,'#3f9a58');el(X+84,Y-28,28,26,'#3b8f52');
+if(i%3==0){x.fillStyle='#d4f6ffaa';x.fillRect(X+100,Y+14,16,H+200)}});
+if(WN(L)==3){x.fillStyle='#4a40382e';x.fillRect(0,TY,VW,VH);lay(.2,300,i=>el(100,TY+120+(i*47%90),90,26,'#55504a66'))}}
+const TH=[{gr:['#8bf06a','#38ad45'],dt:['#d6a05c','#7a4a28'],fl:'#ff6fa0'},{gr:['#93e86a','#3fa83f'],dt:['#cb8c50','#6e4224'],fl:'#ffd23a'},{gr:['#b69cf0','#6a46c0'],dt:['#94709e','#4a2f5a'],fl:'#ff9be8'},{gr:['#a9b56e','#66733c'],dt:['#8e7d6a','#463c32'],fl:'#d9d9d9'},{gr:['#7af59a','#1fb24f'],dt:['#d9a45f','#7c4c26'],fl:'#ffffff'}];
+function farFX(L){const W=WN(L),sg=x.createRadialGradient(VW*.8,TY+90,4,VW*.8,TY+90,280);sg.addColorStop(0,'#fffbd8');sg.addColorStop(.2,'#fff1a8aa');sg.addColorStop(1,'#fff1a800');x.fillStyle=sg;x.fillRect(0,TY-5,VW,VH+10);
+x.save();x.globalCompositeOperation='lighter';for(let i=0;i<5;i++){x.fillStyle='rgba(255,240,190,'+(.045+.02*Math.sin(t/70+i))+')';x.beginPath();x.moveTo(VW*.8+i*44-100,TY);x.lineTo(VW*.8+i*44-40,TY);x.lineTo(VW*.4+i*150-260,TY+VH);x.lineTo(VW*.4+i*150-400,TY+VH);x.fill()}x.restore();
+lay(.06,640,i=>{const H=150+(i*83%90);x.fillStyle=['#8ec3dd','#9db8e0','#b79ad8','#9fa8b0','#79d3d9'][W];x.beginPath();x.moveTo(-40,TY+VH);x.lineTo(60,TY+VH-H);x.lineTo(150,TY+VH-H*.55);x.lineTo(260,TY+VH-H*1.1);x.lineTo(380,TY+VH-H*.5);x.lineTo(520,TY+VH);x.fill()})}
+function sky(L){sky0(L);const W=WN(L);if(W!=3)for(let i=0;i<4;i++){const bx=((t*.6+i*260-C0*.1)%1300+1300)%1300-100,by=TY+70+i*28+Math.sin(t/30+i)*10,f=Math.sin(t/6+i)*7;x.strokeStyle='#2a3a5a';x.lineWidth=2.5;x.beginPath();x.moveTo(bx-12,by-f);x.quadraticCurveTo(bx-5,by-6,bx,by);x.quadraticCurveTo(bx+5,by-6,bx+12,by-f);x.stroke()}
+x.save();for(let i=0;i<26;i++){const px=((i*131+t*(.3+i%3*.15)-C0*.5)%1100+1100)%1100,py=TY+((i*71+Math.sin(t/50+i)*20)%VH+VH)%VH;x.globalAlpha=.55;x.fillStyle=W==2?'#e6b8ff':W==3?'#6b6b70':'#fffbd0';x.beginPath();x.arc(px,py,W==3?4+i%4:2+i%3,0,7);x.fill()}x.restore()}
+function plat(s){if(s.x>C0+VW||s.x+s.w<C0)return;const h=TH[WN(lv)],g=x.createLinearGradient(0,s.y,0,s.y+220);g.addColorStop(0,h.dt[0]);g.addColorStop(1,h.dt[1]);x.fillStyle=g;rr(s.x,s.y+8,s.w,s.h-8,12);x.fill();
+const sd=x.createLinearGradient(s.x,0,s.x+s.w,0);sd.addColorStop(0,'rgba(255,255,255,.16)');sd.addColorStop(.1,'rgba(255,255,255,0)');sd.addColorStop(.9,'rgba(0,0,0,0)');sd.addColorStop(1,'rgba(0,0,0,.3)');x.fillStyle=sd;rr(s.x,s.y+8,s.w,s.h-8,12);x.fill();
+const ao=x.createLinearGradient(0,s.y+14,0,s.y+60);ao.addColorStop(0,'rgba(0,0,0,.35)');ao.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=ao;x.fillRect(s.x,s.y+14,s.w,46);
+for(let a=s.x+10,i=0;a<s.x+s.w-24;a+=38,i++)for(let b=s.y+34+(i%2)*18;b<s.y+180&&b<s.y+s.h-10;b+=40){x.fillStyle='#0002';rr(a,b,30,22,8);x.fill();x.fillStyle='#ffffff14';rr(a+2,b+2,26,6,4);x.fill()}
+const gg=x.createLinearGradient(0,s.y-4,0,s.y+20);gg.addColorStop(0,h.gr[0]);gg.addColorStop(1,h.gr[1]);x.fillStyle=gg;rr(s.x-6,s.y-4,s.w+12,24,12);x.fill();for(let a=s.x;a<s.x+s.w;a+=26)el(a+10,s.y+18+(a%3)*3,14,9,h.gr[1]);
+x.fillStyle=h.gr[0];for(let a=s.x;a<s.x+s.w;a+=9){const hh=6+(a*7%5),sw=Math.sin(t/20+a*.1)*2.5;x.beginPath();x.moveTo(a,s.y-3);x.lineTo(a+sw,s.y-3-hh);x.lineTo(a+5,s.y-3);x.fill()}
+if(s.w>180&&WN(lv)!=3)for(let k=0;k<3;k++){const fx=s.x+30+((s.x*7+k*53)%Math.max(60,s.w-60));x.fillStyle='#3f9a3a';x.fillRect(fx-.7,s.y-8,1.4,6);el(fx,s.y-9,3.5,3.5,h.fl);el(fx,s.y-9,1.5,1.5,'#ffe27a')}
+if(s.w>200){el(s.x+s.w*.72,s.y-6,16,12,h.gr[1]);el(s.x+s.w*.72+14,s.y-3,12,9,h.gr[0])}}
+function mover(s){if(s.x>C0+VW||s.x+s.w<C0)return;const g=x.createLinearGradient(0,s.y,0,s.y+s.h);g.addColorStop(0,'#c98c4a');g.addColorStop(1,'#7a4a28');x.fillStyle='#0003';rr(s.x+4,s.y+s.h,s.w,10,6);x.fill();x.fillStyle=g;rr(s.x,s.y,s.w,s.h,8);x.fill();x.fillStyle='#5fd25a';rr(s.x-3,s.y-4,s.w+6,12,6);x.fill();x.fillStyle='#9bf27a88';x.fillRect(s.x+6,s.y-2,s.w-12,3);
+x.save();x.globalCompositeOperation='lighter';[s.x+16,s.x+s.w-16].forEach(a=>{const rg=x.createRadialGradient(a,s.y+s.h+6,1,a,s.y+s.h+6,16);rg.addColorStop(0,'#8ff0ffcc');rg.addColorStop(1,'#8ff0ff00');x.fillStyle=rg;x.fillRect(a-16,s.y+s.h-6,32,32)});x.restore()}
+function smog(h){if(h.x>C0+VW||h.x+h.w<C0)return;x.save();for(let i=0;i<6;i++){const a=h.x+h.w*(i/5),b=h.y+h.h*.5+Math.sin(t/14+i*2)*6;el(a,b,24+(i%2)*6,18+(i%3)*3,'#3a3a44cc');el(a-3,b-4,16,11,'#6a6a78aa')}x.fillStyle='#ffe14a';x.font='700 18px Fredoka,sans-serif';x.textAlign='center';x.fillText('☠',h.x+h.w/2,h.y-6);x.restore()}
+function item(i){if(i.g||i.x<C0-40||i.x>C0+VW+40)return;const y=i.y+Math.sin(t/14+i.x)*5;x.save();x.globalCompositeOperation='lighter';const g=x.createRadialGradient(i.x,y,2,i.x,y,30);g.addColorStop(0,i.k=='h'?'#ff6b8aaa':'#7fe8ffaa');g.addColorStop(1,'#0000');x.fillStyle=g;x.fillRect(i.x-30,y-30,60,60);x.restore();x.font='30px sans-serif';x.textAlign='center';x.fillText(i.k=='h'?'❤️':'😷',i.x,y+10)}
+function tile(s){if(s.x>C0+VW||s.x+s.w<C0)return;x.lineWidth=3;if(s.q){x.fillStyle=s.u?'#9b7a55':'#ffcf2e';rr(s.x,s.y,40,40,6);x.fill();x.strokeStyle=s.u?'#6b4f33':'#d97a00';x.stroke();if(!s.u){x.fillStyle='#fff';x.strokeStyle='#c46a00';x.font='700 30px Fredoka,sans-serif';x.textAlign='center';x.lineWidth=4;const yy=s.y+31+Math.sin(t/8)*2;x.strokeText('?',s.x+20,yy);x.fillText('?',s.x+20,yy)}}
+else{x.fillStyle='#a8602f';rr(s.x,s.y,40,40,4);x.fill();x.strokeStyle='#5e3416';x.lineWidth=2;x.stroke();x.beginPath();x.moveTo(s.x,s.y+20);x.lineTo(s.x+40,s.y+20);x.moveTo(s.x+20,s.y);x.lineTo(s.x+20,s.y+20);x.stroke()}}
+function sign(s){x.save();x.translate(s.x,s.y);x.fillStyle='#6b4423';x.fillRect(-4,-60,8,60);x.rotate(-.05);x.fillStyle='#b27a40';rr(-85,-110,170,56,6);x.fill();x.strokeStyle='#6b4423';x.lineWidth=4;x.stroke();x.fillStyle='#fff';x.font='700 15px Fredoka,sans-serif';x.textAlign='center';x.fillText(s.t,0,-75);x.restore()}
+function coin(c){if(c.g||c.x<C0-30||c.x>C0+VW+30)return;const y=c.y+Math.sin(t/12+c.x)*3,sx=Math.abs(Math.cos(t/20+c.x*.05))*.6+.4;x.save();x.globalCompositeOperation='lighter';const g=x.createRadialGradient(c.x,y,2,c.x,y,24);g.addColorStop(0,'#ffe27a88');g.addColorStop(1,'#ffd23a00');x.fillStyle=g;x.fillRect(c.x-24,y-24,48,48);x.restore();
+x.save();x.translate(c.x,y);x.scale(sx,1);const cg=x.createLinearGradient(-12,-12,12,12);cg.addColorStop(0,'#fff3a0');cg.addColorStop(.5,'#ffc92a');cg.addColorStop(1,'#c47a00');x.fillStyle=cg;x.beginPath();x.arc(0,0,13,0,7);x.fill();x.strokeStyle='#a86a00';x.lineWidth=2;x.stroke();el(0,-2,7,6,'#fff3b0aa');el(-3,2,3,5.5,'#e08a00');el(3,2,3,5.5,'#e08a00');x.fillStyle='#e08a00';x.fillRect(-.8,-5,1.6,6);x.restore()}
+function vir(e){if(!e.a||e.x<C0-60||e.x>C0+VW+60)return;const cl=[['#b76cf0','#5b1f8c'],['#666678','#14141a'],['#f2605a','#8c1613']][e.c];x.save();x.translate(e.x,e.y+(e.f?0:Math.sin(t/10+e.x)*2));
+if(e.f){const w=Math.sin(t/3)*.5;x.globalAlpha=.75;x.save();x.rotate(-.6-w);el(-26,0,22,9,'#d9f4ff');x.restore();x.save();x.rotate(.6+w);el(26,0,22,9,'#d9f4ff');x.restore();x.globalAlpha=1}
+x.rotate(Math.sin(t/30+e.x)*.2);for(let i=0;i<12;i++){x.rotate(Math.PI/6);x.fillStyle=cl[1];x.fillRect(-2,-27,4,9);el(0,-28,4.5,4.5,cl[0])}
+const g=x.createRadialGradient(-7,-8,2,0,0,21);g.addColorStop(0,'#ffffffcc');g.addColorStop(.25,cl[0]);g.addColorStop(1,cl[1]);x.fillStyle=g;x.beginPath();x.arc(0,0,20,0,7);x.fill();
+el(-7,-2,5.5,6.5,'#fff');el(7,-2,5.5,6.5,'#fff');el(-6,-1,2.8,3.4,'#111');el(6,-1,2.8,3.4,'#111');x.strokeStyle='#111';x.lineWidth=3;x.beginPath();x.moveTo(-13,-12);x.lineTo(-3,-7);x.moveTo(13,-12);x.lineTo(3,-7);x.stroke();
+x.fillStyle='#1a1a1a';rr(-8,6,16,8,3);x.fill();x.fillStyle='#fff';x.fillRect(-6,6,4,4);x.fillRect(2,6,4,4);x.restore()}
+function man(p){if(p.out||(p.inv%8>4))return;const g=p.i,w=p.on?Math.sin(p.a)*7:5,sk='#f4c49a',red='#d71920';x.save();x.translate(p.x+15,p.y+54);x.scale(p.dir*.75,.75);el(0,0,17,4,'#0004');
+x.fillStyle='#b5121b';rr(-22,-46,13,28,5);x.fill();x.fillStyle='#fff';x.fillRect(-20,-36,9,3);
+[[-4+w,'#e6b48a'],[6-w,sk]].forEach(a=>{x.fillStyle=a[1];rr(a[0]-4,-22,8,12,3);x.fill();x.fillStyle='#fff';rr(a[0]-4.5,-13,9,11,3);x.fill();x.fillStyle=red;x.fillRect(a[0]-4.5,-13,9,2.5);el(a[0]+2,-1.5,8.5,4.2,'#17171c')});
+x.fillStyle=red;if(g){x.beginPath();x.moveTo(-12,-24);x.lineTo(14,-24);x.lineTo(19,-12);x.lineTo(-17,-12);x.fill()}else{rr(-11,-26,23,15,4);x.fill()}
+x.fillStyle='#fff';rr(-11,-48,23,26,8);x.fill();x.strokeStyle='#cfe0ee';x.lineWidth=1.5;x.stroke();x.fillStyle=red;x.beginPath();x.moveTo(1,-45);x.lineTo(6,-45);x.lineTo(5,-32);x.lineTo(3.5,-30);x.lineTo(2,-32);x.fill();x.fillStyle='#e3eef8';x.beginPath();x.moveTo(-6,-48);x.lineTo(2,-44);x.lineTo(-3,-41);x.fill();x.fillStyle=red;rr(-8,-38,6,5,1);x.fill();
+x.save();x.translate(2,-43);x.rotate(-w*.09);x.fillStyle='#fff';rr(-5,0,10,9,4);x.fill();x.fillStyle=sk;rr(-3.5,8,7,10,3);x.fill();el(0,19,4.5,4.5,sk);x.restore();
+el(1,-58,16,15.5,sk);el(10,-55,4,2.5,'#ff9aa266');x.fillStyle='#1b1410';x.beginPath();x.ellipse(0,-62,17,12,0,Math.PI,0);x.fill();x.fillRect(-17,-64,6,12);
+if(g){el(-17,-52,6,9,'#1b1410');el(-17,-46,5,5,red);x.fillStyle=red;rr(-10,-76,14,7,3);x.fill()}else{x.fillStyle=red;x.beginPath();x.ellipse(1,-65,17,10,0,Math.PI,0);x.fill();x.fillStyle='#fff';x.fillRect(-16,-66,34,4);x.fillStyle=red;rr(7,-67,17,5,3);x.fill()}
+el(7,-58,3.2,4.2,'#fff');el(8,-58,1.9,2.6,'#1b1410');x.strokeStyle='#a8452e';x.lineWidth=2;x.beginPath();x.arc(8,-52,4.5,.15,2.7);x.stroke();x.restore();
+if(p.sh){x.save();x.globalCompositeOperation='lighter';const sg=x.createRadialGradient(p.x+15,p.y+27,10,p.x+15,p.y+27,44);sg.addColorStop(0,'#7fe8ff00');sg.addColorStop(.8,'#7fe8ff55');sg.addColorStop(1,'#7fe8ffcc');x.fillStyle=sg;x.beginPath();x.arc(p.x+15,p.y+27,44,0,7);x.fill();x.restore()}
+if(mode==2){x.fillStyle=g?'#e0457b':'#2a8fd8';x.font='700 13px Fredoka,sans-serif';x.textAlign='center';x.fillText('P'+(p.i+1)+' ▼',p.x+15,p.y-8)}}
+function portal(){const X=F.x,Y=F.y,o=open_();x.save();x.globalAlpha=o?1:.65;el(X-50,Y-120,52,100,'#f27f96',.12);el(X+50,Y-120,52,100,'#f27f96',-.12);el(X-50,Y-118,42,86,'#ff9fb2',.12);el(X+50,Y-118,42,86,'#ff9fb2',-.12);x.fillStyle='#f6b3bf';x.fillRect(X-8,Y-250,16,90);
+const g=x.createRadialGradient(X,Y-80,5,X,Y-80,60);g.addColorStop(0,'#fff');g.addColorStop(.4,'#4fd0ff');g.addColorStop(1,'#1a5fe0');x.fillStyle=g;x.beginPath();x.ellipse(X,Y-80,38+Math.sin(t/10)*3,66,0,0,7);x.fill();x.restore();
+x.fillStyle='#1d5fb4';rr(X-70,Y-300,140,48,10);x.fill();x.strokeStyle='#ffd24a';x.lineWidth=4;x.stroke();x.fillStyle='#fff';x.font='700 15px Fredoka,sans-serif';x.textAlign='center';x.fillText('Menuju',X,Y-282);x.fillText('Paru-Paru',X,Y-264);
+if(!o){x.font='700 18px Fredoka,sans-serif';x.fillText('🔒 '+(used>=total?'Kalahkan Boss':(total-used)+' blok ?'),X,Y-70)}}
+function bossD(){if(!B||B.hp<=0||B.x<C0-120||B.x>C0+VW+120)return;const fl=B.fl>0||B.inv%10>5;x.save();x.translate(B.x,B.y+Math.sin(t/12)*3);el(0,64,56,9,'#0004');x.rotate(Math.sin(t/40)*.08);for(let i=0;i<18;i++){x.rotate(Math.PI/9);x.fillStyle='#4a0a0a';x.fillRect(-4,-76,8,18);el(0,-78,7,7,'#ff5a3c')}
+const g=x.createRadialGradient(-20,-24,6,0,0,66);g.addColorStop(0,fl?'#fff':'#ff8a7a');g.addColorStop(.35,fl?'#ffd0d0':'#d3342f');g.addColorStop(1,'#5a0e0e');x.fillStyle=g;x.beginPath();x.arc(0,0,62,0,7);x.fill();x.rotate(-Math.sin(t/40)*.08);
+el(-22,-10,13,15,'#fff');el(22,-10,13,15,'#fff');el(-20,-8,6,8,'#111');el(24,-8,6,8,'#111');x.strokeStyle='#111';x.lineWidth=6;x.beginPath();x.moveTo(-38,-32);x.lineTo(-10,-20);x.moveTo(38,-32);x.lineTo(10,-20);x.stroke();
+x.fillStyle='#1a0505';rr(-26,18,52,22,8);x.fill();x.fillStyle='#fff';for(let i=0;i<5;i++)x.fillRect(-23+i*10,18,7,8);
+x.fillStyle='#ffc92a';x.strokeStyle='#a86a00';x.lineWidth=3;x.beginPath();x.moveTo(-34,-52);x.lineTo(-34,-82);x.lineTo(-17,-64);x.lineTo(0,-90);x.lineTo(17,-64);x.lineTo(34,-82);x.lineTo(34,-52);x.closePath();x.fill();x.stroke();x.restore();
+x.fillStyle='#0008';rr(B.x-60,B.y-118,120,14,7);x.fill();for(let i=0;i<B.max;i++){x.fillStyle=i<B.hp?'#ff5a3c':'#442';rr(B.x-58+i*(116/B.max),B.y-116,116/B.max-3,10,4);x.fill()}x.fillStyle='#fff';x.strokeStyle='#5a0e0e';x.lineWidth=3;x.font='700 15px Fredoka,sans-serif';x.textAlign='center';x.strokeText('Raja Kuman',B.x,B.y-126);x.fillText('Raja Kuman',B.x,B.y-126)}
+function portalFX(){if(!open_())return;x.save();x.globalCompositeOperation='lighter';const X=F.x,Y=F.y,g=x.createRadialGradient(X,Y-80,10,X,Y-80,150);g.addColorStop(0,'#6fe0ffaa');g.addColorStop(1,'#6fe0ff00');x.fillStyle=g;x.fillRect(X-150,Y-230,300,300);for(let i=0;i<3;i++){x.strokeStyle='#bff6ff';x.lineWidth=3;x.beginPath();x.ellipse(X,Y-80,10+i*10+Math.sin(t/10+i)*3,20+i*18,0,0,7);x.stroke()}x.restore()}
+function scene(){sky(lv);x.save();x.translate(-C0,0);Sg.forEach(sign);S.forEach(s=>s.mv?mover(s):s.g?plat(s):tile(s));Hz.forEach(smog);portal();portalFX();It.forEach(item);Co.forEach(coin);E.forEach(vir);bossD();pl.forEach(p=>man(p));
+x.save();x.globalCompositeOperation='lighter';Pt.forEach(q=>{x.globalAlpha=Math.min(1,q.l/20);el(q.x,q.y,q.l/6,q.l/6,q.c)});x.restore();x.restore();
+const f=x.createLinearGradient(0,TY+VH-110,0,TY+VH);f.addColorStop(0,'#d6f1ff00');f.addColorStop(1,'#d6f1ff55');x.fillStyle=f;x.fillRect(0,TY+VH-110,VW,110)}
+function view(p,oy,vh,s,ty){VW=960/s;VH=vh/s;TY=ty;const tg=Math.max(-100,Math.min(p.x-VW*.32+p.dir*40,LEN-VW+100));if(st=='menu'||p.cx==null)p.cx=tg;else p.cx+=(tg-p.cx)*.1;C0=p.cx;x.save();x.beginPath();x.rect(0,oy,960,vh);x.clip();x.translate(0,oy);x.scale(s,s);x.translate((Math.random()-.5)*shk,(Math.random()-.5)*shk);x.translate(0,-ty);scene();x.restore();
+if(p.out&&st!='menu'){x.fillStyle='#000a';x.fillRect(0,oy,960,vh);x.fillStyle='#fff';x.font='700 30px Fredoka,sans-serif';x.textAlign='center';x.fillText('💔 Pemain '+(p.i+1)+' gugur',480,oy+vh/2)}}
+function render(){x.setTransform(RS,0,0,RS,0,0);x.clearRect(0,0,960,540);x.textAlign='center';if(mode==1||st=='menu')view(pl[0],0,540,1,0);else{view(pl[0],0,270,.6,100);view(pl[1],270,270,.6,100);x.fillStyle='#0a3d7a';x.fillRect(0,267,960,6)}const vg=x.createRadialGradient(480,270,260,480,270,620);vg.addColorStop(0,'#0000');vg.addColorStop(1,'#03163a66');x.fillStyle=vg;x.fillRect(0,0,960,540)}
+let last=0,acc=0;let ft=0,fc=0;function loop(n){const d=Math.min(n-last,100);acc+=d*(slow>0?.4:1);last=n;ft+=d;fc++;while(acc>=16.67){upd();acc-=16.67}render();if(t%6==0)hud();if(fc>=120){if(ft/fc>27&&RS>2){RS=Math.max(2,RS>>1);cv.width=960*RS;cv.height=540*RS;toast('Resolusi diturunkan otomatis agar lancar',120)}ft=fc=0}requestAnimationFrame(loop)}
+/* ===== Kontrol ===== */
+const KM={KeyA:[0,'l'],KeyD:[0,'r'],KeyW:[0,'j'],Space:[0,'j'],ArrowLeft:[1,'l'],ArrowRight:[1,'r'],ArrowUp:[1,'j']};
+function key(e,v){const m=KM[e.code];if(!m)return;e.preventDefault();const p=pl[mode==1?0:m[0]];if(p)p.k[m[1]]=v}
+addEventListener('keydown',e=>key(e,1));addEventListener('keyup',e=>key(e,0));
+[['bl','l'],['br','r'],['bj','j']].forEach(([id,k])=>{const b=$(id),f=v=>e=>{e.preventDefault();if(pl[0])pl[0].k[k]=v};b.addEventListener('pointerdown',f(1));['pointerup','pointerleave','pointercancel'].forEach(ev=>b.addEventListener(ev,f(0)))});
+$('mu').onclick=()=>{mute=!mute;$('mu').textContent=mute?'🔇':'🔊'};
+/* ===== Resolusi HD / 4K / 8K ===== */
+let RS=2,RM=0;const RMS=['AUTO','HD','4K','8K'];
+function setRS(){RS=RM==0?Math.min(4,Math.max(2,Math.ceil($('box').clientWidth*(devicePixelRatio||1)/960))):[0,2,4,8][RM];cv.width=960*RS;cv.height=540*RS}
+$('rs').onclick=()=>{RM=(RM+1)%4;$('rs').textContent='🖥️ '+RMS[RM];setRS()};
+/* ===== Musik latar "Napas Petualang" (disintesis, tanpa file) ===== */
+const MEL=[[72,0,76,79,76,0,72,0],[69,0,72,76,81,0,76,72],[77,0,81,84,81,0,77,72],[79,0,83,79,74,0,79,83],[84,0,83,79,76,0,79,84],[81,0,79,76,72,0,76,81],[77,81,84,81,77,0,81,84],[83,0,79,0,74,76,77,79]].flat(),ROOT=[48,45,41,43],hz=m=>440*Math.pow(2,(m-69)/12);
+let MG,NB,RV,mus=0,mst=0,mnx=0;
+function mT(f,t0,d,ty,v){const o=AC.createOscillator(),g=AC.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(v,t0+.01);g.gain.exponentialRampToValueAtTime(.001,t0+d);o.connect(g);g.connect(MG);o.start(t0);o.stop(t0+d+.03)}
+function mN(t0,d,ty,f,v,w){const q=AC.createBufferSource();q.buffer=NB;q.loop=true;const fl=AC.createBiquadFilter(),g=AC.createGain();fl.type=ty;fl.frequency.setValueAtTime(f,t0);g.gain.setValueAtTime(0,t0);if(w){fl.frequency.linearRampToValueAtTime(1400,t0+d/2);fl.frequency.linearRampToValueAtTime(f,t0+d);g.gain.linearRampToValueAtTime(v,t0+d/2);g.gain.linearRampToValueAtTime(0,t0+d)}else{g.gain.linearRampToValueAtTime(v,t0+.003);g.gain.exponentialRampToValueAtTime(.001,t0+d)}q.connect(fl);fl.connect(g);g.connect(MG);q.start(t0);q.stop(t0+d+.05)}
+function mStart(){if(mus)return;try{AC=AC||new AudioContext;if(AC.state=='suspended')AC.resume();MG=AC.createGain();MG.gain.value=.5;MG.connect(AC.destination);RV=rev();NB=AC.createBuffer(1,AC.sampleRate,AC.sampleRate);const a=NB.getChannelData(0);for(let i=0;i<a.length;i++)a[i]=Math.random()*2-1;mnx=AC.currentTime+.1;mus=1;setInterval(msched,60)}catch(e){}}
+function rev(){const l=AC.sampleRate*2.4,b=AC.createBuffer(2,l,AC.sampleRate);for(let c=0;c<2;c++){const a=b.getChannelData(c);for(let i=0;i<l;i++)a[i]=(Math.random()*2-1)*Math.pow(1-i/l,3)}const r=AC.createConvolver();r.buffer=b;const g=AC.createGain();g.gain.value=.4;r.connect(g);g.connect(MG);return r}
+function bell(f,t0,d,v){[[1,1],[2.76,.35],[5.4,.12]].forEach(([m,a])=>{const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=f*m;g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(v*a,t0+.005);g.gain.exponentialRampToValueAtTime(.0008,t0+d/Math.pow(m,.3));o.connect(g);g.connect(MG);g.connect(RV);o.start(t0);o.stop(t0+d+.05)})}
+function msched(){if(!mus)return;if(mnx<AC.currentTime)mnx=AC.currentTime+.05;const W=WN(lv),bs=B&&B.hp>0,e=60/(bs?152:[108,116,100,92,120][W])/2,cn=W==3?[0,120,270,540,670]:[0,240,480,720,960],base=[196,220,175,165,247][W],f=k=>base*Math.pow(2,(cn[(k%5+5)%5]+1200*Math.floor(k/5))/1200);
+while(mnx<AC.currentTime+.25){const q=mst%64,i=q&7,bar=q>>3,t0=mnx,P=[[4,0,2,0,3,0,1,0],[2,0,4,0,3,2,1,0],[0,1,2,0,4,0,3,2],[1,0,2,3,4,0,2,0]][bar&3];
+if(i%2==0)bell(f(P[i]+5),t0,e*3.2,.13);else bell(f(P[i]+10),t0,e*2,.05);
+if(i==0&&bar%2==0)bell(base/2,t0,e*14,.24);if(i==4)bell(f(2+(bar&1)*2),t0,e*5,.1);
+if(i%4==0)mT(120,t0,.14,'sine',.3);if(i%4==2||bs)mN(t0,.05,'highpass',3500,.07);
+if(bs&&i%2==0)mT(f(P[i])/2,t0,e*1.2,'sawtooth',.06);
+if(q%32==0)mT(f(0)*2,t0,e*30,'triangle',.05);if(q%16==0)mN(t0,e*16,'bandpass',500,.1,1);mst++;mnx+=e}}
+addEventListener('pointerdown',mStart);addEventListener('keydown',mStart);
+
+/* ===== UPGRADE v2: keyboard, sentuh, efek ===== */
+const touch=matchMedia('(pointer:coarse)').matches||'ontouchstart' in window;document.body.classList.toggle('touch',touch);
+let fi=-1;const opts=()=>[...document.querySelectorAll('#pn .o:not(:disabled),#pn .b:not(:disabled)')];
+function focusOpt(d){const o=opts();if(!o.length)return;o.forEach(e=>e.classList.remove('kf'));fi=(fi+d+o.length)%o.length;o[fi].classList.add('kf');o[fi].scrollIntoView({block:'nearest'});snd(700,.03)}
+new MutationObserver(()=>{fi=-1;const p=$('pn');p.style.animation='none';void p.offsetWidth;p.style.animation='pop .25s ease-out'}).observe($('pn'),{childList:true});
+function pause(v){if(v&&st!='play')return;if(!v&&st!='pause')return;if(v){st='pause';show('<h1>JEDA</h1><p>Tekan <b>P</b> atau <b>Esc</b> untuk lanjut</p><button class="b" onclick="pause(false)">▶ Lanjut</button><button class="b" onclick="menu()">🏠 Menu</button>')}else{$('ov').style.display='none';st='play'}}
+function fs(){const d=document,b=$('box');if(d.fullscreenElement||d.webkitFullscreenElement)(d.exitFullscreen||d.webkitExitFullscreen).call(d);else{(b.requestFullscreen||b.webkitRequestFullscreen||(()=>{})).call(b);try{screen.orientation.lock('landscape').catch(()=>{})}catch(e){}}}
+$('pb').onclick=()=>pause(st=='play');$('fsb').onclick=fs;
+addEventListener('keydown',e=>{const c=e.code,on=$('ov').style.display=='grid';
+if(c=='KeyM'){$('mu').click();return}if(c=='KeyF'){fs();return}
+if((c=='KeyP'||c=='Escape')&&(st=='play'||st=='pause')){e.preventDefault();pause(st=='play');return}
+if(!on)return;const o=opts();
+if(['ArrowDown','KeyS','Tab'].includes(c)&&!e.shiftKey){e.preventDefault();focusOpt(1);return}
+if(['ArrowUp','KeyW'].includes(c)||(c=='Tab'&&e.shiftKey)){e.preventDefault();focusOpt(-1);return}
+if(c=='Enter'||c=='Space'||c=='NumpadEnter'){e.preventDefault();const b=o[fi]||document.querySelector('#pn .b:not(:disabled)');b&&b.click();return}
+const m=c.match(/^(?:Digit|Numpad)(\d)$/);let n=m?+m[1]-1:st=='ask'?{KeyA:0,KeyB:1,KeyC:2,KeyD:3}[c]:undefined;
+if(n!==undefined&&n>=0){const t=st=='ask'?[...document.querySelectorAll('#pn .o')]:o;t[n]&&!t[n].disabled&&t[n].click()}});
+['gesturestart','dblclick'].forEach(v=>addEventListener(v,e=>e.preventDefault()));
+addEventListener('contextmenu',e=>{if(touch)e.preventDefault()});
+document.addEventListener('pointerdown',()=>{if(touch&&st=='play'&&!document.fullscreenElement&&!sessionStorage.fsx){sessionStorage.fsx=1;fs()}},{once:false});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pause(true)});
+const bc=document.createElement('canvas');bc.width=240;bc.height=135;const bx=bc.getContext('2d');bx.imageSmoothingQuality='high';
+const _r=render;render=function(){_r();bx.globalCompositeOperation='copy';bx.filter='brightness(.62) contrast(1.9)';bx.drawImage(cv,0,0,240,135);x.save();x.setTransform(1,0,0,1,0,0);x.globalCompositeOperation='lighter';x.globalAlpha=.3;x.imageSmoothingEnabled=true;x.imageSmoothingQuality='high';x.drawImage(bc,0,0,cv.width,cv.height);x.restore()};
+const _u=upd;upd=function(){_u();if(st!='play')return;pl.forEach(p=>{if(p.out)return;
+if(p.on&&!p.po&&p.lv>4)for(let i=0;i<8;i++)Pt.push({x:p.x+15,y:p.y+54,vx:(Math.random()-.5)*5,vy:-Math.random()*1.6,l:24,c:'#ffffff99'});
+if(p.on&&Math.abs(p.vx)>1&&t%6==0)Pt.push({x:p.x+15-p.dir*9,y:p.y+53,vx:-p.dir*.6,vy:-.7,l:16,c:'#ffffff77'});
+if(p.ph!=null&&p.hp<p.ph&&navigator.vibrate)navigator.vibrate(90);p.ph=p.hp;p.po=p.on;p.lv=p.vy});
+if(t%10==0)Pt.push({x:C0+Math.random()*VW,y:TY+VH+10,vx:(Math.random()-.5)*.6,vy:-7,l:70,c:'#c8f8ffaa'})};
+
+/* ===== UPGRADE v3 ===== */
+const CFG={d:1,hp:3,tm:1};try{Object.assign(CFG,JSON.parse(localStorage.rq_cfg))}catch(e){}
+function setD(d){CFG.d=d;CFG.hp=[4,3,2][d];CFG.tm=[1.5,1,.7][d];try{localStorage.rq_cfg=JSON.stringify(CFG)}catch(e){}cfgp()}
+function cfgp(){show('<h1>Pengaturan</h1><h3>Tingkat Kesulitan</h3>'+['😊 Mudah · 4❤️ · waktu soal panjang','🙂 Normal · 3❤️','😈 Sulit · 2❤️ · waktu soal singkat'].map((l,i)=>`<button class="b${CFG.d==i?' kf':''}" style="display:block;margin:.6cqw auto" onclick="setD(${i})">${l}</button>`).join('')+'<p class="sm">Tersimpan otomatis di perangkat ini.</p><button class="b" onclick="menu()">⬅ Kembali</button>')}
+`0|M|Fungsi utama sistem pernapasan adalah ...|Mengambil oksigen dan membuang karbon dioksida|Memompa darah|Mencerna makanan|Menyaring darah|Pernapasan menukar gas dengan lingkungan.|1
+1|M|Otot di bawah paru-paru yang membantu bernapas adalah ...|Diafragma|Bisep|Trisep|Lidah|Diafragma berkontraksi saat menarik napas.|1
+1|T|Paru-paru dapat mengembang sendiri tanpa bantuan otot.|S||||Otot diafragma dan rusuk mengubah volume rongga dada.|3
+2|M|Gejala utama asma adalah ...|Napas mengi dan sesak berulang|Mata merah|Kulit gatal|Sakit perut|Saluran napas menyempit saat asma kambuh.|1
+2|T|TBC dapat disembuhkan jika berobat teratur sampai tuntas.|B||||Obat harus diminum sampai selesai.|2
+3|M|Gas beracun dari asap rokok dan kendaraan yang mengikat hemoglobin adalah ...|Karbon monoksida|Oksigen|Nitrogen|Uap air|CO membuat oksigen dalam darah berkurang.|3
+3|T|Vape (rokok elektrik) sepenuhnya aman bagi paru-paru.|S||||Uap vape tetap mengiritasi paru-paru.|2
+4|M|Saat kualitas udara buruk, tindakan terbaik adalah ...|Memakai masker dan mengurangi aktivitas luar|Berolahraga berat di luar|Membuka semua jendela|Membakar sampah|Kurangi paparan polusi saat udara buruk.|2
+4|T|Mencuci tangan membantu mencegah penyakit pernapasan.|B||||Kuman dari tangan bisa masuk lewat hidung dan mulut.|1
+4|M|Berhenti merokok paling baik dimulai ...|Sekarang dengan dukungan keluarga dan tenaga kesehatan|Menunggu sampai tua|Berpindah ke vape|Mengurangi tidur|Berhenti lebih awal memberi paru-paru kesempatan pulih.|3`.split('\n').forEach(l=>{const a=l.split('|');Q.push({c:+a[0],t:a[1],q:a[2],o:a.slice(3,7),w:a[7]||'',l:+a[8]||2})});
+let slow=0,tut={},RC='',gp0={};const TU=[[260,'Gerak: ← → / A D atau tombol layar'],[800,'Lompat: ↑ / W / Spasi · Sundul blok ? dari bawah!'],[1500,'Kumpulkan koin 🪙 & injak kuman dari atas'],[2300,'Hindari asap ☠ — polusi melukai paru-paru!']];
+const _m=man;man=function(p){if(p.out)return;const g=p.x+15,y=p.y+54,sq=Math.min(.14,Math.abs(p.vy)*.012);x.save();x.translate(g,y);x.scale(1-sq*.8,1+sq);x.translate(-g,-y);x.save();x.globalCompositeOperation='lighter';const rg=x.createRadialGradient(g,y-27,4,g,y-27,52);rg.addColorStop(0,p.i?'#ff7ab855':'#6fd0ff55');rg.addColorStop(1,'#0000');x.fillStyle=rg;x.fillRect(g-52,y-82,104,104);x.restore();_m(p);x.restore()};
+const _v=vir;vir=function(e){if(e.a){x.save();x.globalCompositeOperation='lighter';const g=x.createRadialGradient(e.x,e.y,4,e.x,e.y,46+Math.sin(t/8+e.x)*5);g.addColorStop(0,['#b76cf066','#88889966','#f2605a66'][e.c]);g.addColorStop(1,'#0000');x.fillStyle=g;x.fillRect(e.x-52,e.y-52,104,104);x.restore()}_v(e)};
+const _b=bossD;bossD=function(){if(B&&B.hp>0){x.save();x.globalCompositeOperation='lighter';const g=x.createRadialGradient(B.x,B.y,10,B.x,B.y,150+Math.sin(t/10)*10);g.addColorStop(0,'#ff3c2a77');g.addColorStop(1,'#0000');x.fillStyle=g;x.fillRect(B.x-160,B.y-160,320,320);x.restore()}_b()};
+const _sl=startLv;startLv=function(){_sl();tut={};slow=0;const b=$('bn');b.innerHTML='LEVEL '+lv+'<br><small>'+LT[WN(lv)]+'</small>';b.style.animation='none';void b.offsetWidth;b.style.animation='bn 2.4s ease-out forwards'};
+const _rs=resume;resume=function(){_rs();if(B&&B.hp<=0&&!B.sm){B.sm=1;slow=160;shk=16;for(let i=0;i<60;i++)Pt.push({x:B.x,y:B.y,vx:(Math.random()-.5)*14,vy:-Math.random()*9,l:50,c:['#ffd23a','#ff5a3c','#fff'][i%3]});toast('👑 Raja Kuman tumbang!',150)}};
+const _en=endLv;endLv=function(){_en();RC='Respira Quest · Level '+lv+' · '+pl.map((p,i)=>'P'+(i+1)+': skor '+p.sc+', benar '+p.ok+'/'+(p.ok+p.ng)+', koin '+p.co).join(' | ')+' · Dibuat oleh : Riski Hermawan';$('pn').insertAdjacentHTML('beforeend','<button class="b" onclick="navigator.clipboard&&navigator.clipboard.writeText(RC);this.textContent=\'✅ Tersalin!\'">📋 Salin Hasil</button>')};
+let padOK=1;function pad(){if(!padOK)return;let g;try{g=(navigator.getGamepads?navigator.getGamepads():[])[0]}catch(e){padOK=0;return}if(!g)return;const b=i=>g.buttons[i]&&g.buttons[i].pressed,ed=(k,v)=>{const r=v&&!gp0[k];gp0[k]=v;return r},on=$('ov').style.display=='grid';
+if(st=='play'&&pl[0])[['l',g.axes[0]<-.4||b(14)],['r',g.axes[0]>.4||b(15)],['j',b(0)||b(2)]].forEach(([k,v])=>{if(v||gp0['k'+k])pl[0].k[k]=+v;gp0['k'+k]=v});
+if(ed('s',b(9)))pause(st=='play');
+if(on){if(ed('u',g.axes[1]<-.5||b(12)))focusOpt(-1);if(ed('d',g.axes[1]>.5||b(13)))focusOpt(1);if(ed('a',b(0))){const o=opts(),e=o[fi]||document.querySelector('#pn .b:not(:disabled)');e&&e.click()}}}
+const _u2=upd;upd=function(){pad();if(slow>0)slow--;_u2();if(lv==1&&st=='play'&&pl[0])TU.forEach((u,i)=>{if(!tut[i]&&pl[0].x>u[0]){tut[i]=1;toast(u[1],200)}})};
+
+/* ===== UPGRADE v4: karakter, musuh, dunia, musik, soal ===== */
+`0|M|Gas yang paling banyak di udara yang kita hirup adalah ...|Nitrogen|Oksigen|Karbon dioksida|Hidrogen|Sekitar 78% udara adalah nitrogen, oksigen sekitar 21%.|3
+0|T|Bernapas lewat hidung membuat udara lebih bersih daripada lewat mulut.|B||||Rambut hidung dan lendir menyaring debu.|1
+0|M|Bagian yang menghubungkan rongga hidung dengan laring adalah ...|Faring|Bronkus|Alveolus|Pleura|Faring dilewati udara dan makanan.|2
+0|M|Cabang kecil dari bronkus di dalam paru-paru disebut ...|Bronkiolus|Trakea|Laring|Faring|Bronkiolus berujung pada alveolus.|2
+1|M|Gas sisa pernapasan yang dikeluarkan tubuh adalah ...|Karbon dioksida|Oksigen|Nitrogen|Helium|CO₂ adalah sisa metabolisme sel.|1
+1|T|Paru-paru kanan dan kiri berukuran sama persis.|S||||Paru-paru kiri sedikit lebih kecil karena ada jantung.|2
+1|M|Napas normal orang dewasa saat istirahat sekitar ... kali per menit.|12-20|2|100|500|Frekuensi napas normal sekitar 12-20 kali per menit.|3
+1|M|Sel yang membawa oksigen dalam darah adalah ...|Sel darah merah|Sel darah putih|Keping darah|Sel saraf|Hemoglobin pada sel darah merah mengikat oksigen.|2
+2|M|Penyakit tenggorokan yang bisa dicegah dengan imunisasi adalah ...|Difteri|Diare|Kudis|Maag|Imunisasi lengkap melindungi dari difteri.|3
+2|T|Batuk dan pilek tidak pernah menular.|S||||Banyak penyakit pernapasan menular lewat percikan.|2
+2|M|Siapa yang sebaiknya memakai masker saat batuk dan pilek?|Orang yang sakit dan orang di dekatnya|Hanya orang sehat|Tidak perlu siapa pun|Hanya hewan|Masker mengurangi penularan percikan.|1
+3|M|Polusi udara luar ruangan banyak berasal dari ...|Asap kendaraan dan pabrik|Hujan|Embun pagi|Angin laut|Gas buang mencemari udara.|1
+3|T|Asap obat nyamuk bakar aman dihirup di ruangan tertutup.|S||||Asapnya mengiritasi saluran napas.|1
+4|M|Tanaman hijau di sekitar rumah bermanfaat karena ...|Menyerap CO₂ dan menambah oksigen|Menambah debu|Menyumbat saluran|Mengurangi oksigen|Fotosintesis menghasilkan oksigen.|1
+4|T|Bernapas dalam dan tenang membantu tubuh lebih rileks.|B||||Napas diafragma menenangkan tubuh.|2
+4|M|Kebiasaan sehat untuk paru-paru adalah ...|Olahraga, tidak merokok, udara bersih|Begadang dan merokok|Membakar sampah|Menutup semua ventilasi|Gaya hidup sehat melindungi paru-paru.|1`.split('\n').forEach(l=>{const a=l.split('|');Q.push({c:+a[0],t:a[1],q:a[2],o:a.slice(3,7),w:a[7]||'',l:+a[8]||2})});
+man=function(p){if(p.out||(p.inv%8>4))return;const g=p.i,cx=p.x+15,cy=p.y+54,w=p.on?Math.sin(p.a):0,air=!p.on,sk='#f4c49a',sh=g?'#e0457b':'#d71920',sd=g?'#9c2a5c':'#9c1018',sq=Math.min(.14,Math.abs(p.vy)*.012),bl=(t+p.i*40)%190<6;
+x.save();x.translate(cx,cy);x.scale(p.dir,1);x.scale(1-sq*.8,1+sq);
+x.save();x.globalCompositeOperation='lighter';const rg=x.createRadialGradient(0,-27,4,0,-27,52);rg.addColorStop(0,g?'#ff7ab844':'#6fd0ff44');rg.addColorStop(1,'#0000');x.fillStyle=rg;x.fillRect(-52,-82,104,104);x.restore();el(0,0,17,4,'#0005');
+[[w,1],[-w,0]].forEach(([s,f])=>{const lx=-5+f*10,o=air?(f?7:-5):s*7;x.fillStyle=f?'#1c3f7a':'#2a56a3';rr(lx+o-4,-26,8,22,3);x.fill();el(lx+o+2,-3-(Math.abs(s)>.7&&!air?3:0),9,4.5,'#fff');x.fillStyle=sh;x.fillRect(lx+o-6,-4,6,2)});
+x.fillStyle=sd;rr(-20,-48,10,26,5);x.fill();
+const tg=x.createLinearGradient(-12,-50,12,-22);tg.addColorStop(0,'#fff');tg.addColorStop(1,'#d3e2f0');x.fillStyle=tg;rr(-12,-50,24,28,9);x.fill();x.fillStyle=sh;x.fillRect(-12,-34,24,4);
+x.save();x.translate(2,-44);x.rotate(air?-1.1:-w*.7);x.fillStyle='#fff';rr(-4.5,-2,9,11,4);x.fill();x.fillStyle=sk;rr(-3.5,8,7,10,3);x.fill();el(0,19,4.5,4.5,sk);x.restore();
+const hg=x.createRadialGradient(-3,-64,3,1,-58,18);hg.addColorStop(0,'#ffe0bf');hg.addColorStop(1,sk);el(1,-59,16,15.5,hg);
+x.fillStyle='#1b1410';x.beginPath();x.ellipse(0,-63,17,12,0,Math.PI,0);x.fill();x.fillRect(-17,-64,6,12);
+if(g){el(-17,-52,6,9,'#1b1410');el(-17,-45,5,5,sh);x.fillStyle=sh;rr(-10,-77,14,7,3);x.fill()}else{x.fillStyle=sh;x.beginPath();x.ellipse(1,-66,17,10,0,Math.PI,0);x.fill();x.fillStyle='#fff';x.fillRect(-16,-67,34,4);x.fillStyle=sh;rr(7,-68,17,5,3);x.fill()}
+el(10,-54,4,2.5,'#ff8a9a77');el(7,-59,3.4,bl?.7:4.6,'#fff');if(!bl)el(8.4,-59,2,2.8,'#1b1410');x.strokeStyle='#a8452e';x.lineWidth=2;x.beginPath();x.arc(8,-53,4.5,.15,air?3.1:2.7);x.stroke();x.restore();
+if(p.sh){x.save();x.globalCompositeOperation='lighter';const sg=x.createRadialGradient(cx,p.y+27,10,cx,p.y+27,44);sg.addColorStop(0,'#7fe8ff00');sg.addColorStop(.8,'#7fe8ff55');sg.addColorStop(1,'#7fe8ffcc');x.fillStyle=sg;x.beginPath();x.arc(cx,p.y+27,44,0,7);x.fill();x.restore()}
+if(mode==2){x.fillStyle=g?'#e0457b':'#2a8fd8';x.font='700 13px Fredoka,sans-serif';x.textAlign='center';x.fillText('P'+(p.i+1)+' ▼',cx,p.y-8)}};
+vir=function(e){if(!e.a||e.x<C0-60||e.x>C0+VW+60)return;const cl=[['#b76cf0','#5b1f8c'],['#666678','#14141a'],['#f2605a','#8c1613']][e.c],pu=1+Math.sin(t/9+e.x)*.06,tp=pl[0]||e,lk=Math.max(-2.5,Math.min(2.5,(tp.x-e.x)/50)),ly=Math.max(-2,Math.min(2,(tp.y-e.y)/50));
+x.save();x.translate(e.x,e.y+(e.f?0:Math.sin(t/10+e.x)*2));
+x.save();x.globalCompositeOperation='lighter';const gl=x.createRadialGradient(0,0,4,0,0,48);gl.addColorStop(0,cl[0]+'66');gl.addColorStop(1,'#0000');x.fillStyle=gl;x.fillRect(-50,-50,100,100);x.restore();
+if(e.f){const w=Math.sin(t/3)*.5;x.globalAlpha=.75;x.save();x.rotate(-.6-w);el(-26,0,22,9,'#d9f4ff');x.restore();x.save();x.rotate(.6+w);el(26,0,22,9,'#d9f4ff');x.restore();x.globalAlpha=1}
+x.scale(pu,pu);x.rotate(Math.sin(t/30+e.x)*.2);for(let i=0;i<14;i++){x.rotate(Math.PI/7);x.fillStyle=cl[1];x.fillRect(-2.2,-27,4.4,9+Math.sin(t/6+i)*2);el(0,-29-Math.sin(t/6+i)*2,4.8,4.8,cl[0])}x.rotate(-Math.sin(t/30+e.x)*.2);
+const g=x.createRadialGradient(-7,-8,2,0,0,21);g.addColorStop(0,'#ffffffdd');g.addColorStop(.25,cl[0]);g.addColorStop(1,cl[1]);x.fillStyle=g;x.beginPath();x.arc(0,0,20,0,7);x.fill();
+[-7,7].forEach(a=>{el(a,-2,6,7,'#fff');el(a+lk,-1+ly,3,3.6,'#111');el(a+lk-1,-2+ly,1,1,'#fff')});
+x.strokeStyle='#111';x.lineWidth=3;x.beginPath();x.moveTo(-13,-12);x.lineTo(-3,-7);x.moveTo(13,-12);x.lineTo(3,-7);x.stroke();
+x.fillStyle='#1a1a1a';rr(-9,6,18,9,3);x.fill();x.fillStyle='#fff';[-7,-1,5].forEach(a=>{x.beginPath();x.moveTo(a,6);x.lineTo(a+4,6);x.lineTo(a+2,11);x.fill()});x.restore()};
+const dec=[(X,Y)=>{el(X,Y,12,12,'#ffffff66');el(X+20,Y+6,12,12,'#ffffff66');x.fillStyle='#fff';x.font='700 11px Fredoka,sans-serif';x.textAlign='center';x.fillText('O₂',X+10,Y+7)},(X,Y)=>{[[0,0,16],[22,8,12],[-14,14,10],[8,22,9]].forEach(a=>el(X+a[0],Y+a[1]+Math.sin(t/40+X)*4,a[2],a[2],'#ff9fb255'))},(X,Y)=>{x.save();x.translate(X,Y);x.rotate(t/90);for(let k=0;k<8;k++){x.rotate(.785);x.fillStyle='#8a3fc788';x.fillRect(-2,-20,4,8)}el(0,0,13,13,'#8a3fc766');x.restore()},(X,Y)=>{x.fillStyle='#3a3a44aa';x.fillRect(X-12,Y+40,24,260);x.fillRect(X-16,Y+34,32,10);for(let k=0;k<4;k++)el(X+Math.sin(t/30+k)*8+k*6,Y+24-k*22,14+k*5,11+k*3,'#55555caa')},(X,Y)=>{x.fillStyle='#6b4423aa';x.fillRect(X-4,Y+60,8,200);el(X,Y+50,28,24,'#2fb24fbb');el(X-16,Y+66,18,15,'#3ccf60bb');el(X+16,Y+66,18,15,'#3ccf60bb')}];
+const _sk=sky;sky=function(L){_sk(L);const W=WN(L);lay(.45,520,i=>dec[W](60+(i*137%160),TY+50+(i*61%150)))};
+function fl(f,t0,d,v){const o=AC.createOscillator(),g=AC.createGain(),l=AC.createOscillator(),lg=AC.createGain();o.type='triangle';o.frequency.value=f;l.frequency.value=5.5;lg.gain.value=f*.012;l.connect(lg);lg.connect(o.frequency);g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(v,t0+.06);g.gain.linearRampToValueAtTime(0,t0+d);o.connect(g);g.connect(MG);g.connect(RV);o.start(t0);l.start(t0);o.stop(t0+d+.05);l.stop(t0+d+.05)}
+const _ms=msched;msched=function(){if(!mus)return;const b0=mst,W=WN(lv),bs=B&&B.hp>0,e=60/(bs?152:[108,116,100,92,120][W])/2,cn=W==3?[0,120,270,540,670]:[0,240,480,720,960],base=[196,220,175,165,247][W],f=k=>base*Math.pow(2,(cn[(k%5+5)%5]+1200*Math.floor(k/5))/1200);_ms();for(let k=b0;k<mst;k++){const t0=mnx-(mst-k)*e,q=k%64,i=q&7,bar=q>>3,sec=(k>>6)%4,d=[0,2,4,3,1,3,2,0][i];if(sec>=1&&i%2==0&&bar%2==1)fl(f(d+10),t0,e*3,.07);if(sec>=2&&i%2==1)bell(f(d+15),t0,e,.035);if(sec==3&&(i==3||i==7)){mT(90,t0,.1,'sine',.25);mN(t0,.04,'highpass',5000,.06)}}};
+const _sn=snd;snd=function(f,d,ty,f2){if(!ty&&!f2&&f>=900&&AC&&RV&&!mute)return bell(f,AC.currentTime,.5,.1);_sn(f,d,ty,f2)};
+const _h4=hit;hit=function(p,f){const h0=p.hp;_h4(p,f);if(p.hp<h0&&mus&&!mute)mN(AC.currentTime,.25,'bandpass',900,.3)};
+const _e4=endLv;endLv=function(){_e4();if(mus&&!mute&&AC&&RV&&!pl.every(p=>p.out))[523,659,784,1047,1319].forEach((f,i)=>bell(f,AC.currentTime+i*.13,1.4,.12))};
+
+/* ===== UPGRADE v5: Raja Kuman + Mode Guru ===== */
+if(!CFG.mat)CFG.mat=[1,1,1,1,1];const sv=()=>{try{localStorage.rq_cfg=JSON.stringify(CFG)}catch(e){}};
+function tgM(i){if(CFG.mat[i]&&CFG.mat.filter(v=>v).length==1)return;CFG.mat[i]=CFG.mat[i]?0:1;sv();cfgp()}
+function setN(n){CFG.n=n;sv();cfgp()}function tgT(){CFG.nt=!CFG.nt;sv();cfgp()}
+cfgp=function(){const bt=(on,fn,l)=>`<button class="b${on?' kf':''}" style="font-size:max(11px,1.6cqw);padding:.5cqw 1.4cqw" onclick="${fn}">${l}</button>`;
+show('<h1>Mode Guru</h1><h3>Tingkat Kesulitan</h3>'+['😊 Mudah','🙂 Normal','😈 Sulit'].map((l,i)=>bt(CFG.d==i,`setD(${i})`,l)).join('')+'<h3>Materi Soal</h3>'+CATS.map((c,i)=>bt(CFG.mat[i],`tgM(${i})`,(CFG.mat[i]?'✅ ':'⬜ ')+ICO[i]+' '+c)).join('')+'<h3>Jumlah Soal per Level</h3>'+[[0,'Otomatis'],[3,'3'],[5,'5'],[8,'8']].map(([n,l])=>bt((CFG.n||0)==n,`setN(${n})`,l)).join('')+'<h3>Waktu Menjawab</h3>'+bt(!CFG.nt,'tgT()',CFG.nt?'⬜ Berbatas waktu':'⏱️ Berbatas waktu')+bt(CFG.nt,'tgT()',CFG.nt?'♾️ Tanpa batas':'⬜ Tanpa batas')+'<p class="sm">Materi terpilih dipakai di semua level. Pengaturan tersimpan di perangkat ini.</p><button class="b" onclick="menu()">⬅ Kembali</button>')};
+const _pk=pick;pick=function(L,n){if(CFG.mat.every(v=>v))return _pk(L,n);let ok=Q.filter(q=>CFG.mat[q.c]&&!seen.has(q));if(ok.length<n)ok=Q.filter(q=>CFG.mat[q.c]);const r=sh(ok).slice(0,n);r.forEach(q=>seen.add(q));return r};
+const _bq=bq;bq=function(){const a=Q.filter(q=>q.l>=2&&CFG.mat[q.c]);return a.length?a[Math.random()*a.length|0]:_bq()};
+const cl_=(v,a,b)=>Math.max(a,Math.min(b,v));
+bossD=function(){if(!B||B.hp<=0||B.x<C0-170||B.x>C0+VW+170)return;const fl=B.fl>0||B.inv%10>5,en=1-B.hp/B.max,tp=pl[0]||B,lk=cl_((tp.x-B.x)/30,-5,5),ly=cl_((tp.y-B.y)/30,-4,4),pu=1+Math.sin(t/7)*(.03+en*.04);
+x.save();x.translate(B.x,B.y+Math.sin(t/12)*3);
+x.save();x.globalCompositeOperation='lighter';const ag=x.createRadialGradient(0,0,10,0,0,160+Math.sin(t/10)*10);ag.addColorStop(0,'#ff3c2a'+(en>.5?'99':'66'));ag.addColorStop(1,'#0000');x.fillStyle=ag;x.fillRect(-170,-170,340,340);x.restore();
+el(0,64,58,9,'#0005');x.scale(pu,pu);
+x.save();x.rotate(t/140);for(let i=0;i<20;i++){x.rotate(Math.PI/10);const L=92+Math.sin(t/8+i)*5;x.fillStyle='#3a0707';x.beginPath();x.moveTo(-7,-58);x.lineTo(0,-L);x.lineTo(7,-58);x.fill();el(0,-L-1,6,6,'#ff5a3c')}x.restore();
+const g=x.createRadialGradient(-20,-24,6,0,0,66);g.addColorStop(0,fl?'#fff':'#ff8a7a');g.addColorStop(.35,fl?'#ffd0d0':'#d3342f');g.addColorStop(1,'#4a0808');x.fillStyle=g;x.beginPath();x.arc(0,0,62,0,7);x.fill();
+[[-34,24,9],[30,34,7],[38,-24,6],[-40,-20,6],[0,48,6]].forEach(a=>el(a[0],a[1],a[2],a[2],'#7a1010aa'));
+[-22,22].forEach(a=>{el(a,-8,15,17,'#fff');el(a+lk,-8+ly,7.5,9.5,en>.5?'#e00':'#111');el(a+lk-2,-11+ly,2.4,2.4,'#fff')});
+x.strokeStyle='#150404';x.lineWidth=7;x.lineCap='round';const bk=en*8;x.beginPath();x.moveTo(-42,-34+bk);x.lineTo(-8,-18-bk);x.moveTo(42,-34+bk);x.lineTo(8,-18-bk);x.stroke();
+x.fillStyle='#1a0505';rr(-30,16,60,28,12);x.fill();el(0,38,13,6,'#e0506a');x.fillStyle='#fff';for(let i=0;i<6;i++){x.beginPath();x.moveTo(-27+i*9.5,17);x.lineTo(-18+i*9.5,17);x.lineTo(-22.5+i*9.5,27+Math.sin(t/6+i)*2);x.fill()}for(let i=0;i<5;i++){x.beginPath();x.moveTo(-22+i*10,43);x.lineTo(-13+i*10,43);x.lineTo(-17.5+i*10,34);x.fill()}
+const cg=x.createLinearGradient(0,-92,0,-52);cg.addColorStop(0,'#fff3a0');cg.addColorStop(1,'#e09a00');x.fillStyle=cg;x.strokeStyle='#8a5200';x.lineWidth=3;x.lineJoin='round';x.beginPath();x.moveTo(-36,-52);x.lineTo(-36,-84);x.lineTo(-18,-66);x.lineTo(0,-94);x.lineTo(18,-66);x.lineTo(36,-84);x.lineTo(36,-52);x.closePath();x.fill();x.stroke();[[-36,-84],[0,-94],[36,-84]].forEach(a=>el(a[0],a[1],4.5,4.5,'#e0204a'));el(0,-62,5,5,'#3fd2ff');
+x.restore();
+x.fillStyle='#0008';rr(B.x-60,B.y-122,120,14,7);x.fill();for(let i=0;i<B.max;i++){x.fillStyle=i<B.hp?'#ff5a3c':'#442';rr(B.x-58+i*(116/B.max),B.y-120,116/B.max-3,10,4);x.fill()}x.fillStyle='#fff';x.strokeStyle='#5a0e0e';x.lineWidth=3;x.font='700 15px Fredoka,sans-serif';x.textAlign='center';x.strokeText('Raja Kuman',B.x,B.y-130);x.fillText('Raja Kuman',B.x,B.y-130)};
+
+/* ===== UPGRADE v6: tombol layar untuk IFP / Smartboard ===== */
+const tcOn=v=>document.body.classList.toggle('touch',v);let tcs=null;try{tcs=localStorage.rq_tc}catch(e){}
+tcOn(tcs!=null?tcs=='1':(navigator.maxTouchPoints>0||touch));
+addEventListener('pointerdown',e=>{if(e.pointerType!='mouse'&&tcs==null)tcOn(true)},true);
+$('gb').onclick=()=>{const v=!document.body.classList.contains('touch');tcOn(v);tcs=v?'1':'0';try{localStorage.rq_tc=tcs}catch(e){}toast(v?'🎮 Tombol layar AKTIF':'Tombol layar dimatikan',90)};
+[['bl2','l'],['br2','r'],['bj2','j']].forEach(([id,k])=>{const b=$(id),f=v=>e=>{e.preventDefault();if(pl[1])pl[1].k[k]=v};b.addEventListener('pointerdown',f(1));['pointerup','pointerleave','pointercancel'].forEach(ev=>b.addEventListener(ev,f(0)))});
+const _go6=go;go=function(m,L){_go6(m,L);['bl','br','bj'].forEach(i=>$(i).style.display='block');['bl2','br2','bj2'].forEach(i=>$(i).style.display=m==2?'block':'none')};
+setRS();addEventListener('resize',()=>{if(RM==0)setRS()});
+menu();requestAnimationFrame(loop);
+</script>
+<script>
+/* ===== PWA: service worker + tombol "Pasang aplikasi" ===== */
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+(()=>{let dp,bn;const st=(k,v)=>{try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){}};
+const hide=()=>{if(bn){bn.remove();bn=null}};
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;if(st('rq_pwa')=='x'||matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches)return;
+bn=document.createElement('div');bn.setAttribute('role','dialog');bn.style.cssText='position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:10px;background:#0d3a73f2;color:#fff;border:2px solid #5fd0f0;border-radius:28px;padding:8px 10px 8px 16px;font:700 14px Fredoka,system-ui,sans-serif;box-shadow:0 6px 18px #0008;max-width:94vw';
+bn.innerHTML='<span>📲 Pasang Respira Quest di layar utama</span><button id="pi" style="font:inherit;border:0;border-radius:18px;padding:7px 16px;background:linear-gradient(#ffd84a,#ff9a1c);color:#5a2c00;cursor:pointer">Pasang</button><button id="px" aria-label="Tutup" style="font:inherit;border:0;background:none;color:#fff;cursor:pointer;font-size:18px">✕</button>';
+document.body.appendChild(bn);bn.querySelector('#pi').onclick=async()=>{hide();dp.prompt();try{await dp.userChoice}catch(e){}dp=null};bn.querySelector('#px').onclick=()=>{st('rq_pwa','x');hide()};setTimeout(hide,15000)});
+addEventListener('appinstalled',hide)})();
+</script>
+</body></html>
