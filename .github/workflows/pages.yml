@@ -1,0 +1,39 @@
+name: Deploy Respira Quest ke GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Isi alamat situs & versi cache secara otomatis
+        run: |
+          BASE="${{ steps.pages.outputs.base_url }}"
+          mkdir _site
+          cp index.html manifest.webmanifest sw.js og-image.jpg icon-192.png icon-512.png icon-maskable-512.png apple-touch-icon.png _site/
+          sed -i "s#https://USERNAME.github.io/respira-quest#${BASE}#g" _site/index.html
+          sed -i "s#const VERSION='dev'#const VERSION='${GITHUB_SHA::7}'#" _site/sw.js
+          ! grep -q "USERNAME.github.io" _site/index.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
